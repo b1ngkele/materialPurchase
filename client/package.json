@@ -1,0 +1,24 @@
+{
+  "name": "material-purchase-client",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.0",
+    "@umijs/max": "^4.4.0",
+    "antd": "^5.0.0",
+    "antd-mobile": "^5.0.0",
+    "axios": "^1.6.0",
+    "qrcode.react": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}

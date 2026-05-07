@@ -1,0 +1,2209 @@
+{
+  "cwd": "/Users/shizu/code/materialPurchase/client",
+  "pkg": {
+    "name": "material-purchase-client",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "dev": "umi dev",
+      "build": "umi build",
+      "postinstall": "umi setup",
+      "start": "npm run dev"
+    },
+    "dependencies": {
+      "@ant-design/icons": "^5.0.0",
+      "@umijs/max": "^4.4.0",
+      "antd": "^5.0.0",
+      "antd-mobile": "^5.0.0",
+      "axios": "^1.6.0",
+      "qrcode.react": "^4.0.0"
+    },
+    "devDependencies": {
+      "@types/react": "^18.0.0",
+      "@types/react-dom": "^18.0.0",
+      "typescript": "^5.0.0"
+    }
+  },
+  "pkgPath": "/Users/shizu/code/materialPurchase/client/package.json",
+  "plugins": {
+    "./node_modules/@umijs/core/dist/service/servicePlugin": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "preset",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/core/dist/service/servicePlugin.js",
+      "id": "./node_modules/@umijs/core/dist/service/servicePlugin",
+      "key": "servicePlugin",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "@umijs/preset-umi": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "preset",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/index.js",
+      "id": "@umijs/preset-umi",
+      "key": "umi",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 3
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/registerMethods": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/registerMethods.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/registerMethods",
+      "key": "registerMethods",
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            1
+          ]
+        },
+        "register": 2
+      },
+      "enableBy": "register"
+    },
+    "@umijs/did-you-know": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/did-you-know/dist/plugin.js",
+      "id": "@umijs/did-you-know",
+      "key": "umijsDidYouKnow",
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            1
+          ]
+        },
+        "register": 3
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/404/404": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/404/404.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/404/404",
+      "key": "404",
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyRoutes": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/aiDev/aiDev": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/aiDev/aiDev.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/aiDev/aiDev",
+      "key": "aiDev",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/appData/appData": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/appData/appData.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/appData/appData",
+      "key": "appData",
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyAppData": [
+            6
+          ]
+        },
+        "register": 16
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/appData/umiInfo": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/appData/umiInfo.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/appData/umiInfo",
+      "key": "umiInfo",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/check/check": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/check/check.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/check/check",
+      "key": "check",
+      "config": {},
+      "time": {
+        "hooks": {
+          "onCheckConfig": [
+            0
+          ],
+          "onCheck": [
+            0
+          ]
+        },
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/check/babel722": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/check/babel722.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/check/babel722",
+      "key": "babel722",
+      "config": {},
+      "time": {
+        "hooks": {
+          "onCheck": [
+            0
+          ]
+        },
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/codeSplitting/codeSplitting": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/codeSplitting/codeSplitting.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/codeSplitting/codeSplitting",
+      "key": "codeSplitting",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/configPlugins/configPlugins": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/configPlugins/configPlugins.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/configPlugins/configPlugins",
+      "key": "configPlugins",
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            0
+          ]
+        },
+        "register": 7
+      },
+      "enableBy": "register"
+    },
+    "virtual: config-title": {
+      "id": "virtual: config-title",
+      "key": "title",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-styles": {
+      "id": "virtual: config-styles",
+      "key": "styles",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-scripts": {
+      "id": "virtual: config-scripts",
+      "key": "scripts",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-routes": {
+      "id": "virtual: config-routes",
+      "key": "routes",
+      "config": {
+        "onChange": "regenerateTmpFiles"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-routeLoader": {
+      "id": "virtual: config-routeLoader",
+      "key": "routeLoader",
+      "config": {
+        "default": {
+          "moduleType": "esm"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-reactRouter5Compat": {
+      "id": "virtual: config-reactRouter5Compat",
+      "key": "reactRouter5Compat",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-presets": {
+      "id": "virtual: config-presets",
+      "key": "presets",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-plugins": {
+      "id": "virtual: config-plugins",
+      "key": "plugins",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-npmClient": {
+      "id": "virtual: config-npmClient",
+      "key": "npmClient",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-mountElementId": {
+      "id": "virtual: config-mountElementId",
+      "key": "mountElementId",
+      "config": {
+        "default": "root"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-metas": {
+      "id": "virtual: config-metas",
+      "key": "metas",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-links": {
+      "id": "virtual: config-links",
+      "key": "links",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-historyWithQuery": {
+      "id": "virtual: config-historyWithQuery",
+      "key": "historyWithQuery",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-history": {
+      "id": "virtual: config-history",
+      "key": "history",
+      "config": {
+        "default": {
+          "type": "browser"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-headScripts": {
+      "id": "virtual: config-headScripts",
+      "key": "headScripts",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-esbuildMinifyIIFE": {
+      "id": "virtual: config-esbuildMinifyIIFE",
+      "key": "esbuildMinifyIIFE",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-conventionRoutes": {
+      "id": "virtual: config-conventionRoutes",
+      "key": "conventionRoutes",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-conventionLayout": {
+      "id": "virtual: config-conventionLayout",
+      "key": "conventionLayout",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-base": {
+      "id": "virtual: config-base",
+      "key": "base",
+      "config": {
+        "default": "/"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-analyze": {
+      "id": "virtual: config-analyze",
+      "key": "analyze",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-writeToDisk": {
+      "id": "virtual: config-writeToDisk",
+      "key": "writeToDisk",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-transformRuntime": {
+      "id": "virtual: config-transformRuntime",
+      "key": "transformRuntime",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-theme": {
+      "id": "virtual: config-theme",
+      "key": "theme",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-targets": {
+      "id": "virtual: config-targets",
+      "key": "targets",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-svgr": {
+      "id": "virtual: config-svgr",
+      "key": "svgr",
+      "config": {
+        "default": {}
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-svgo": {
+      "id": "virtual: config-svgo",
+      "key": "svgo",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-stylusLoader": {
+      "id": "virtual: config-stylusLoader",
+      "key": "stylusLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-styleLoader": {
+      "id": "virtual: config-styleLoader",
+      "key": "styleLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-srcTranspilerOptions": {
+      "id": "virtual: config-srcTranspilerOptions",
+      "key": "srcTranspilerOptions",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-srcTranspiler": {
+      "id": "virtual: config-srcTranspiler",
+      "key": "srcTranspiler",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-sassLoader": {
+      "id": "virtual: config-sassLoader",
+      "key": "sassLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-runtimePublicPath": {
+      "id": "virtual: config-runtimePublicPath",
+      "key": "runtimePublicPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-purgeCSS": {
+      "id": "virtual: config-purgeCSS",
+      "key": "purgeCSS",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-publicPath": {
+      "id": "virtual: config-publicPath",
+      "key": "publicPath",
+      "config": {
+        "default": "/"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-proxy": {
+      "id": "virtual: config-proxy",
+      "key": "proxy",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-postcssLoader": {
+      "id": "virtual: config-postcssLoader",
+      "key": "postcssLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-outputPath": {
+      "id": "virtual: config-outputPath",
+      "key": "outputPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-normalCSSLoaderModules": {
+      "id": "virtual: config-normalCSSLoaderModules",
+      "key": "normalCSSLoaderModules",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-mfsu": {
+      "id": "virtual: config-mfsu",
+      "key": "mfsu",
+      "config": {
+        "default": {
+          "strategy": "eager"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-mdx": {
+      "id": "virtual: config-mdx",
+      "key": "mdx",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-manifest": {
+      "id": "virtual: config-manifest",
+      "key": "manifest",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-lessLoader": {
+      "id": "virtual: config-lessLoader",
+      "key": "lessLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-jsMinifierOptions": {
+      "id": "virtual: config-jsMinifierOptions",
+      "key": "jsMinifierOptions",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-jsMinifier": {
+      "id": "virtual: config-jsMinifier",
+      "key": "jsMinifier",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-inlineLimit": {
+      "id": "virtual: config-inlineLimit",
+      "key": "inlineLimit",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-ignoreMomentLocale": {
+      "id": "virtual: config-ignoreMomentLocale",
+      "key": "ignoreMomentLocale",
+      "config": {
+        "default": true
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-https": {
+      "id": "virtual: config-https",
+      "key": "https",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-hash": {
+      "id": "virtual: config-hash",
+      "key": "hash",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-forkTSChecker": {
+      "id": "virtual: config-forkTSChecker",
+      "key": "forkTSChecker",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-fastRefresh": {
+      "id": "virtual: config-fastRefresh",
+      "key": "fastRefresh",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraPostCSSPlugins": {
+      "id": "virtual: config-extraPostCSSPlugins",
+      "key": "extraPostCSSPlugins",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraBabelPresets": {
+      "id": "virtual: config-extraBabelPresets",
+      "key": "extraBabelPresets",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraBabelPlugins": {
+      "id": "virtual: config-extraBabelPlugins",
+      "key": "extraBabelPlugins",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraBabelIncludes": {
+      "id": "virtual: config-extraBabelIncludes",
+      "key": "extraBabelIncludes",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-externals": {
+      "id": "virtual: config-externals",
+      "key": "externals",
+      "config": {
+        "default": {}
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-esm": {
+      "id": "virtual: config-esm",
+      "key": "esm",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-devtool": {
+      "id": "virtual: config-devtool",
+      "key": "devtool",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-depTranspiler": {
+      "id": "virtual: config-depTranspiler",
+      "key": "depTranspiler",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-define": {
+      "id": "virtual: config-define",
+      "key": "define",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-deadCode": {
+      "id": "virtual: config-deadCode",
+      "key": "deadCode",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssPublicPath": {
+      "id": "virtual: config-cssPublicPath",
+      "key": "cssPublicPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssMinifierOptions": {
+      "id": "virtual: config-cssMinifierOptions",
+      "key": "cssMinifierOptions",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssMinifier": {
+      "id": "virtual: config-cssMinifier",
+      "key": "cssMinifier",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssLoaderModules": {
+      "id": "virtual: config-cssLoaderModules",
+      "key": "cssLoaderModules",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssLoader": {
+      "id": "virtual: config-cssLoader",
+      "key": "cssLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-copy": {
+      "id": "virtual: config-copy",
+      "key": "copy",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-checkDepCssModules": {
+      "id": "virtual: config-checkDepCssModules",
+      "key": "checkDepCssModules",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-chainWebpack": {
+      "id": "virtual: config-chainWebpack",
+      "key": "chainWebpack",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cacheDirectoryPath": {
+      "id": "virtual: config-cacheDirectoryPath",
+      "key": "cacheDirectoryPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-babelLoaderCustomize": {
+      "id": "virtual: config-babelLoaderCustomize",
+      "key": "babelLoaderCustomize",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-autoprefixer": {
+      "id": "virtual: config-autoprefixer",
+      "key": "autoprefixer",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-autoCSSModules": {
+      "id": "virtual: config-autoCSSModules",
+      "key": "autoCSSModules",
+      "config": {
+        "default": true
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-alias": {
+      "id": "virtual: config-alias",
+      "key": "alias",
+      "config": {
+        "default": {
+          "umi": "@@/exports",
+          "react": "/Users/shizu/code/materialPurchase/client/node_modules/react",
+          "react-dom": "/Users/shizu/code/materialPurchase/client/node_modules/react-dom",
+          "react-router": "/Users/shizu/code/materialPurchase/client/node_modules/react-router",
+          "react-router-dom": "/Users/shizu/code/materialPurchase/client/node_modules/react-router-dom"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/crossorigin/crossorigin": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/crossorigin/crossorigin.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/crossorigin/crossorigin",
+      "key": "crossorigin",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/depsOnDemand/depsOnDemand": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/depsOnDemand/depsOnDemand.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/depsOnDemand/depsOnDemand",
+      "key": "depsOnDemand",
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/devTool/devTool": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/devTool/devTool.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/devTool/devTool",
+      "key": "devTool",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/esbuildHelperChecker/esbuildHelperChecker": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/esbuildHelperChecker/esbuildHelperChecker.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/esbuildHelperChecker/esbuildHelperChecker",
+      "key": "esbuildHelperChecker",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 61
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/esmi/esmi": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/esmi/esmi.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/esmi/esmi",
+      "key": "esmi",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 34
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/exportStatic/exportStatic": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/exportStatic/exportStatic.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/exportStatic/exportStatic",
+      "key": "exportStatic",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 15
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/favicons/favicons": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/favicons/favicons.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/favicons/favicons",
+      "key": "favicons",
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyAppData": [
+            0
+          ]
+        },
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/helmet/helmet": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/helmet/helmet.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/helmet/helmet",
+      "key": "helmet",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/icons/icons": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/icons/icons.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/icons/icons",
+      "key": "icons",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/mock/mock": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/mock/mock.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/mock/mock",
+      "key": "mock",
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            1
+          ]
+        },
+        "register": 24
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/mpa/mpa": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/mpa/mpa.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/mpa/mpa",
+      "key": "mpa",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/okam/okam": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/okam/okam.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/okam/okam",
+      "key": "okam",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/overrides/overrides": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/overrides/overrides.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/overrides/overrides",
+      "key": "overrides",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/phantomDependency/phantomDependency": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/phantomDependency/phantomDependency.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/phantomDependency/phantomDependency",
+      "key": "phantomDependency",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/polyfill/polyfill": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/polyfill/polyfill.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/polyfill/polyfill",
+      "key": "polyfill",
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            0
+          ]
+        },
+        "register": 1
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/polyfill/publicPathPolyfill": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/polyfill/publicPathPolyfill.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/polyfill/publicPathPolyfill",
+      "key": "publicPathPolyfill",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/prepare/prepare": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/prepare/prepare.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/prepare/prepare",
+      "key": "prepare",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 3
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/routePrefetch/routePrefetch": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/routePrefetch/routePrefetch.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/routePrefetch/routePrefetch",
+      "key": "routePrefetch",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/stagewise/stagewise": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/stagewise/stagewise.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/stagewise/stagewise",
+      "key": "stagewise",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/terminal/terminal": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/terminal/terminal.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/terminal/terminal",
+      "key": "terminal",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/tmpFiles": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/tmpFiles/tmpFiles.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/tmpFiles",
+      "key": "tmpFiles",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 3
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/clientLoader/clientLoader": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/clientLoader/clientLoader.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/clientLoader/clientLoader",
+      "key": "clientLoader",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/routeProps/routeProps": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/routeProps/routeProps.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/routeProps/routeProps",
+      "key": "routeProps",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/ssr/ssr": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/ssr/ssr.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/ssr/ssr",
+      "key": "ssr",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/configTypes": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/tmpFiles/configTypes.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/configTypes",
+      "key": "configTypes",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/transform/transform": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/transform/transform.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/transform/transform",
+      "key": "transform",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/lowImport/lowImport": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/lowImport/lowImport.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/lowImport/lowImport",
+      "key": "lowImport",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/vite/vite": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/vite/vite.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/vite/vite",
+      "key": "vite",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/apiRoute/apiRoute": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/apiRoute/apiRoute.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/apiRoute/apiRoute",
+      "key": "apiRoute",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 4
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/monorepo/redirect": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/monorepo/redirect.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/monorepo/redirect",
+      "key": "monorepoRedirect",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 15
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/test/test": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/test/test.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/test/test",
+      "key": "test",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/clickToComponent/clickToComponent": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/clickToComponent/clickToComponent.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/clickToComponent/clickToComponent",
+      "key": "clickToComponent",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/legacy/legacy": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/legacy/legacy.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/legacy/legacy",
+      "key": "legacy",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/classPropertiesLoose/classPropertiesLoose": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/classPropertiesLoose/classPropertiesLoose.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/classPropertiesLoose/classPropertiesLoose",
+      "key": "classPropertiesLoose",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/webpack/webpack": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/webpack/webpack.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/webpack/webpack",
+      "key": "preset-umi:webpack",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/swc/swc": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/swc/swc.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/swc/swc",
+      "key": "swc",
+      "config": {},
+      "time": {
+        "hooks": {
+          "addOnDemandDeps": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/ui/ui": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/ui/ui.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/ui/ui",
+      "key": "ui",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 3
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/mako/mako": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/mako/mako.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/mako/mako",
+      "key": "mako",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/utoopack/utoopack": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/utoopack/utoopack.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/utoopack/utoopack",
+      "key": "utoopack",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian",
+      "key": "hmrGuardian",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/routePreloadOnLoad/routePreloadOnLoad": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/routePreloadOnLoad/routePreloadOnLoad.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/routePreloadOnLoad/routePreloadOnLoad",
+      "key": "routePreloadOnLoad",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 17
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/forget/forget": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/forget/forget.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/forget/forget",
+      "key": "forget",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/bundler/bundler": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/features/bundler/bundler.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/bundler/bundler",
+      "key": "preset-umi:bundler",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/build": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/build.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/build",
+      "key": "build",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 3
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/config/config": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/config/config.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/config/config",
+      "key": "config",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 25
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/dev/dev": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/dev/dev.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/dev/dev",
+      "key": "dev",
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyAppData": [
+            11
+          ]
+        },
+        "register": 26
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/help": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/help.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/help",
+      "key": "help",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/lint": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/lint.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/lint",
+      "key": "lint",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/setup": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/setup.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/setup",
+      "key": "setup",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/deadcode": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/deadcode.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/deadcode",
+      "key": "deadcode",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/version": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/version.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/version",
+      "key": "version",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/page": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/page.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/page",
+      "key": "generator:page",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/prettier": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/prettier.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/prettier",
+      "key": "generator:prettier",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/tsconfig": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/tsconfig.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/tsconfig",
+      "key": "generator:tsconfig",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/jest": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/jest.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/jest",
+      "key": "generator:jest",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/tailwindcss": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/tailwindcss.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/tailwindcss",
+      "key": "generator:tailwindcss",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/dva": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/dva.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/dva",
+      "key": "generator:dva",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/component": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/component.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/component",
+      "key": "generator:component",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/mock": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/mock.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/mock",
+      "key": "generator:mock",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/cypress": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/cypress.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/cypress",
+      "key": "generator:cypress",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/api": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/api.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/api",
+      "key": "generator:api",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/precommit": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/generators/precommit.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/precommit",
+      "key": "generator:precommit",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/plugin": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/plugin.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/plugin",
+      "key": "command:plugin",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/verify-commit": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/verify-commit.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/verify-commit",
+      "key": "verifyCommit",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/preview": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/preview.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/preview",
+      "key": "preview",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 16
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/mfsu/mfsu": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/preset-umi/dist/commands/mfsu/mfsu.js",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/mfsu/mfsu",
+      "key": "mfsu-cli",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register"
+    },
+    "@umijs/plugin-run": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/plugin-run/dist/index.js",
+      "id": "@umijs/plugin-run",
+      "key": "run",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register"
+    },
+    "./node_modules/@umijs/core/dist/service/generatePlugin": {
+      "cwd": "/Users/shizu/code/materialPurchase/client",
+      "type": "plugin",
+      "path": "/Users/shizu/code/materialPurchase/client/node_modules/@umijs/core/dist/service/generatePlugin.js",
+      "id": "./node_modules/@umijs/core/dist/service/generatePlugin",
+      "key": "generatePlugin",
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register"
+    }
+  },
+  "presets": [],
+  "name": "dev",
+  "args": {
+    "_": []
+  },
+  "userConfig": {
+    "npmClient": "npm",
+    "routes": [
+      {
+        "path": "/mobile/submit",
+        "component": "./mobile/submit"
+      },
+      {
+        "path": "/admin/login",
+        "component": "./admin/login"
+      },
+      {
+        "path": "/admin",
+        "component": "@/layouts/AdminLayout",
+        "routes": [
+          {
+            "path": "/admin/dashboard",
+            "component": "./admin/dashboard"
+          },
+          {
+            "path": "/admin/requests",
+            "component": "./admin/requests"
+          },
+          {
+            "path": "/admin/products",
+            "component": "./admin/products"
+          },
+          {
+            "path": "/admin/settings",
+            "component": "./admin/settings"
+          },
+          {
+            "redirect": "/admin/dashboard"
+          }
+        ]
+      },
+      {
+        "path": "/",
+        "redirect": "/mobile/submit"
+      }
+    ],
+    "proxy": {
+      "/api": {
+        "target": "http://localhost:3001",
+        "changeOrigin": true
+      }
+    },
+    "title": "办公用品采购系统",
+    "favicons": [],
+    "hash": true
+  },
+  "mainConfigFile": "/Users/shizu/code/materialPurchase/client/.umirc.ts",
+  "config": {
+    "routeLoader": {
+      "moduleType": "esm"
+    },
+    "mountElementId": "root",
+    "history": {
+      "type": "browser"
+    },
+    "base": "/",
+    "svgr": {},
+    "publicPath": "/",
+    "mfsu": {
+      "strategy": "eager"
+    },
+    "ignoreMomentLocale": true,
+    "externals": {},
+    "autoCSSModules": true,
+    "alias": {
+      "umi": "@@/exports",
+      "react": "/Users/shizu/code/materialPurchase/client/node_modules/react",
+      "react-dom": "/Users/shizu/code/materialPurchase/client/node_modules/react-dom",
+      "react-router": "/Users/shizu/code/materialPurchase/client/node_modules/react-router",
+      "react-router-dom": "/Users/shizu/code/materialPurchase/client/node_modules/react-router-dom",
+      "@": "/Users/shizu/code/materialPurchase/client/src",
+      "@@": "/Users/shizu/code/materialPurchase/client/src/.umi",
+      "regenerator-runtime": "/Users/shizu/code/materialPurchase/client/node_modules/regenerator-runtime"
+    },
+    "npmClient": "npm",
+    "routes": [
+      {
+        "path": "/mobile/submit",
+        "component": "./mobile/submit"
+      },
+      {
+        "path": "/admin/login",
+        "component": "./admin/login"
+      },
+      {
+        "path": "/admin",
+        "component": "@/layouts/AdminLayout",
+        "routes": [
+          {
+            "path": "/admin/dashboard",
+            "component": "./admin/dashboard"
+          },
+          {
+            "path": "/admin/requests",
+            "component": "./admin/requests"
+          },
+          {
+            "path": "/admin/products",
+            "component": "./admin/products"
+          },
+          {
+            "path": "/admin/settings",
+            "component": "./admin/settings"
+          },
+          {
+            "redirect": "/admin/dashboard"
+          }
+        ]
+      },
+      {
+        "path": "/",
+        "redirect": "/mobile/submit"
+      }
+    ],
+    "proxy": {
+      "/api": {
+        "target": "http://localhost:3001",
+        "changeOrigin": true
+      }
+    },
+    "title": "办公用品采购系统",
+    "favicons": [],
+    "hash": true,
+    "targets": {
+      "chrome": 80
+    }
+  },
+  "routes": {
+    "1": {
+      "path": "/mobile/submit",
+      "file": "@/pages/mobile/submit/index.tsx",
+      "id": "1",
+      "absPath": "/mobile/submit",
+      "__content": "import React, { useState, useEffect, useMemo } from 'react';\nimport {\n  Button,\n  NavBar,\n  Steps,\n  Input,\n  TextArea,\n  CheckList,\n  SearchBar,\n  Stepper,\n  Result,\n  SpinLoading,\n  Toast,\n  Card,\n  Tag,\n  Empty,\n  DotLoading,\n} from 'antd-mobile';\nimport {\n  getActivePeriod,\n  getCategories,\n  getProducts,\n  submitPurchaseRequest,\n} from '@/services/api';\nimport styles from './index.module.css';\n\nconst { Step } = Steps;\n\ninterface Category {\n  id: number;\n  name: string;\n}\n\ninterface Product {\n  id: number;\n  category_id: number;\n  name: string;\n  unit: string;\n  spec: string;\n  price: number;\n  category_name: string;\n}\n\ninterface SelectedItem {\n  productId: number;\n  productName: string;\n  unit: string;\n  price: number;\n  categoryName: string;\n  quantity: number;\n  purpose: string;\n}\n\nconst SubmitPage: React.FC = () => {\n  // 状态管理\n  const [loading, setLoading] = useState(true);\n  const [submitting, setSubmitting] = useState(false);\n  const [currentStep, setCurrentStep] = useState(0);\n  const [activePeriod, setActivePeriod] = useState<any>(null);\n\n  // Step 1: 基本信息\n  const [employeeName, setEmployeeName] = useState('');\n  const [department, setDepartment] = useState('');\n\n  // Step 2: 品类选择\n  const [categories, setCategories] = useState<Category[]>([]);\n  const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);\n\n  // Step 3: 物品选择\n  const [products, setProducts] = useState<Product[]>([]);\n  const [productsLoading, setProductsLoading] = useState(false);\n  const [searchKeyword, setSearchKeyword] = useState('');\n  const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);\n\n  // Step 4: 数量和用途\n  const [selectedItems, setSelectedItems] = useState<SelectedItem[]>([]);\n\n  // 提交结果\n  const [submitSuccess, setSubmitSuccess] = useState(false);\n\n  // 初始化\n  useEffect(() => {\n    initData();\n  }, []);\n\n  const initData = async () => {\n    try {\n      setLoading(true);\n      const [periodRes, categoryRes]: any = await Promise.all([\n        getActivePeriod(),\n        getCategories(),\n      ]);\n      if (periodRes.code === 0) {\n        setActivePeriod(periodRes.data);\n      }\n      if (categoryRes.code === 0) {\n        setCategories(categoryRes.data);\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  // 加载物品数据\n  const loadProducts = async (categoryIds: number[]) => {\n    try {\n      setProductsLoading(true);\n      const res: any = await getProducts({\n        categoryIds: categoryIds.join(','),\n      });\n      if (res.code === 0) {\n        setProducts(res.data);\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setProductsLoading(false);\n    }\n  };\n\n  // 根据搜索关键字过滤物品\n  const filteredProducts = useMemo(() => {\n    if (!searchKeyword.trim()) return products;\n    const kw = searchKeyword.trim().toLowerCase();\n    return products.filter(\n      (p) =>\n        p.name.toLowerCase().includes(kw) ||\n        p.category_name.toLowerCase().includes(kw),\n    );\n  }, [products, searchKeyword]);\n\n  // 按品类分组物品\n  const groupedProducts = useMemo(() => {\n    const groups: Record<string, Product[]> = {};\n    filteredProducts.forEach((p) => {\n      if (!groups[p.category_name]) {\n        groups[p.category_name] = [];\n      }\n      groups[p.category_name].push(p);\n    });\n    return groups;\n  }, [filteredProducts]);\n\n  // Step 导航\n  const goNext = () => {\n    if (currentStep === 0) {\n      if (!employeeName.trim()) {\n        Toast.show({ content: '请输入姓名', icon: 'fail' });\n        return;\n      }\n      if (!department.trim()) {\n        Toast.show({ content: '请输入部门', icon: 'fail' });\n        return;\n      }\n    }\n    if (currentStep === 1) {\n      if (selectedCategoryIds.length === 0) {\n        Toast.show({ content: '请至少选择一个品类', icon: 'fail' });\n        return;\n      }\n      // 加载物品\n      loadProducts(selectedCategoryIds);\n    }\n    if (currentStep === 2) {\n      if (selectedProductIds.length === 0) {\n        Toast.show({ content: '请至少选择一个物品', icon: 'fail' });\n        return;\n      }\n      // 初始化已选物品的数量和用途\n      const items: SelectedItem[] = selectedProductIds.map((pid) => {\n        const product = products.find((p) => p.id === pid)!;\n        const existing = selectedItems.find((si) => si.productId === pid);\n        return {\n          productId: pid,\n          productName: product.name,\n          unit: product.unit,\n          price: product.price,\n          categoryName: product.category_name,\n          quantity: existing?.quantity || 1,\n          purpose: existing?.purpose || '',\n        };\n      });\n      setSelectedItems(items);\n    }\n    setCurrentStep((s) => s + 1);\n  };\n\n  const goBack = () => {\n    setCurrentStep((s) => s - 1);\n  };\n\n  // 提交\n  const handleSubmit = async () => {\n    // 校验\n    for (const item of selectedItems) {\n      if (item.quantity < 1) {\n        Toast.show({ content: `${item.productName} 数量不能小于1`, icon: 'fail' });\n        return;\n      }\n      if (!item.purpose.trim()) {\n        Toast.show({ content: `请填写 ${item.productName} 的用途`, icon: 'fail' });\n        return;\n      }\n    }\n\n    try {\n      setSubmitting(true);\n      const res: any = await submitPurchaseRequest({\n        periodId: activePeriod.id,\n        employeeName: employeeName.trim(),\n        department: department.trim(),\n        items: selectedItems.map((item) => ({\n          productId: item.productId,\n          quantity: item.quantity,\n          purpose: item.purpose.trim(),\n        })),\n      });\n\n      if (res.code === 0) {\n        setSubmitSuccess(true);\n      } else {\n        Toast.show({ content: res.message || '提交失败', icon: 'fail' });\n      }\n    } catch (err: any) {\n      Toast.show({ content: err.message || '提交失败，请稍后重试', icon: 'fail' });\n    } finally {\n      setSubmitting(false);\n    }\n  };\n\n  // 重置，继续提交\n  const handleReset = () => {\n    setCurrentStep(0);\n    setEmployeeName('');\n    setDepartment('');\n    setSelectedCategoryIds([]);\n    setSelectedProductIds([]);\n    setSelectedItems([]);\n    setSearchKeyword('');\n    setSubmitSuccess(false);\n  };\n\n  // Loading 状态\n  if (loading) {\n    return (\n      <div className={styles.loadingContainer}>\n        <SpinLoading color=\"white\" style={{ '--size': '48px' }} />\n        <p className={styles.loadingText}>加载中...</p>\n      </div>\n    );\n  }\n\n  // 无活跃周期\n  if (!activePeriod) {\n    return (\n      <div className={styles.container}>\n        <div className={styles.emptyCard}>\n          <Result\n            status=\"info\"\n            title=\"暂无采购活动\"\n            description=\"当前没有进行中的采购活动，请等待行政部门通知\"\n          />\n        </div>\n      </div>\n    );\n  }\n\n  // 提交成功\n  if (submitSuccess) {\n    return (\n      <div className={styles.container}>\n        <div className={styles.successCard}>\n          <Result\n            status=\"success\"\n            title=\"提交成功\"\n            description={`您的${activePeriod.title}采购需求已提交成功`}\n          />\n          <Button\n            block\n            color=\"primary\"\n            size=\"large\"\n            onClick={handleReset}\n            className={styles.continueBtn}\n          >\n            继续提交\n          </Button>\n        </div>\n      </div>\n    );\n  }\n\n  return (\n    <div className={styles.container}>\n      {/* 顶部标题 */}\n      <div className={styles.header}>\n        <h1 className={styles.title}>{activePeriod.title}</h1>\n        <p className={styles.subtitle}>办公用品采购需求填报</p>\n      </div>\n\n      {/* 步骤条 */}\n      <div className={styles.stepsWrapper}>\n        <Steps current={currentStep}>\n          <Step title=\"基本信息\" />\n          <Step title=\"选择品类\" />\n          <Step title=\"选择物品\" />\n          <Step title=\"确认提交\" />\n        </Steps>\n      </div>\n\n      {/* Step 1: 基本信息 */}\n      {currentStep === 0 && (\n        <div className={styles.stepContent}>\n          <Card className={styles.formCard}>\n            <div className={styles.formItem}>\n              <label className={styles.label}>\n                <span className={styles.required}>*</span> 姓名\n              </label>\n              <Input\n                placeholder=\"请输入您的姓名\"\n                value={employeeName}\n                onChange={setEmployeeName}\n                clearable\n                className={styles.input}\n              />\n            </div>\n            <div className={styles.formItem}>\n              <label className={styles.label}>\n                <span className={styles.required}>*</span> 部门\n              </label>\n              <Input\n                placeholder=\"请输入您的部门\"\n                value={department}\n                onChange={setDepartment}\n                clearable\n                className={styles.input}\n              />\n            </div>\n          </Card>\n          <Button\n            block\n            color=\"primary\"\n            size=\"large\"\n            onClick={goNext}\n            className={styles.nextBtn}\n          >\n            下一步\n          </Button>\n        </div>\n      )}\n\n      {/* Step 2: 选择品类 */}\n      {currentStep === 1 && (\n        <div className={styles.stepContent}>\n          <p className={styles.hint}>请选择您需要采购的物品品类（可多选）</p>\n          <div className={styles.categoryGrid}>\n            {categories.map((cat) => (\n              <div\n                key={cat.id}\n                className={`${styles.categoryCard} ${\n                  selectedCategoryIds.includes(cat.id) ? styles.categoryCardActive : ''\n                }`}\n                onClick={() => {\n                  setSelectedCategoryIds((prev) =>\n                    prev.includes(cat.id)\n                      ? prev.filter((id) => id !== cat.id)\n                      : [...prev, cat.id],\n                  );\n                }}\n              >\n                <span className={styles.categoryIcon}>\n                  {getCategoryIcon(cat.name)}\n                </span>\n                <span className={styles.categoryName}>{cat.name}</span>\n                {selectedCategoryIds.includes(cat.id) && (\n                  <span className={styles.checkMark}>✓</span>\n                )}\n              </div>\n            ))}\n          </div>\n          <div className={styles.btnGroup}>\n            <Button size=\"large\" onClick={goBack} className={styles.backBtn}>\n              上一步\n            </Button>\n            <Button\n              color=\"primary\"\n              size=\"large\"\n              onClick={goNext}\n              className={styles.nextBtnHalf}\n            >\n              下一步\n            </Button>\n          </div>\n        </div>\n      )}\n\n      {/* Step 3: 选择物品 */}\n      {currentStep === 2 && (\n        <div className={styles.stepContent}>\n          <SearchBar\n            placeholder=\"搜索物品名称\"\n            value={searchKeyword}\n            onChange={setSearchKeyword}\n            className={styles.searchBar}\n          />\n\n          {productsLoading ? (\n            <div className={styles.centerLoading}>\n              <DotLoading color=\"primary\" />\n              <span>加载中...</span>\n            </div>\n          ) : (\n            <div className={styles.productList}>\n              {Object.entries(groupedProducts).map(([catName, prods]) => (\n                <div key={catName} className={styles.productGroup}>\n                  <div className={styles.groupTitle}>{catName}</div>\n                  {prods.map((product) => (\n                    <div\n                      key={product.id}\n                      className={`${styles.productItem} ${\n                        selectedProductIds.includes(product.id)\n                          ? styles.productItemActive\n                          : ''\n                      }`}\n                      onClick={() => {\n                        setSelectedProductIds((prev) =>\n                          prev.includes(product.id)\n                            ? prev.filter((id) => id !== product.id)\n                            : [...prev, product.id],\n                        );\n                      }}\n                    >\n                      <div className={styles.productCheckbox}>\n                        <div\n                          className={`${styles.checkbox} ${\n                            selectedProductIds.includes(product.id)\n                              ? styles.checkboxChecked\n                              : ''\n                          }`}\n                        >\n                          {selectedProductIds.includes(product.id) && '✓'}\n                        </div>\n                      </div>\n                      <div className={styles.productInfo}>\n                        <div className={styles.productName}>{product.name}</div>\n                        <div className={styles.productMeta}>\n                          <Tag color=\"default\" fill=\"outline\">\n                            {product.unit}\n                          </Tag>\n                          <span className={styles.productPrice}>\n                            ¥{product.price?.toFixed(2)}\n                          </span>\n                        </div>\n                      </div>\n                    </div>\n                  ))}\n                </div>\n              ))}\n              {Object.keys(groupedProducts).length === 0 && (\n                <Empty description=\"未找到相关物品\" />\n              )}\n            </div>\n          )}\n\n          <div className={styles.selectedCount}>\n            已选择 <strong>{selectedProductIds.length}</strong> 个物品\n          </div>\n\n          <div className={styles.btnGroup}>\n            <Button size=\"large\" onClick={goBack} className={styles.backBtn}>\n              上一步\n            </Button>\n            <Button\n              color=\"primary\"\n              size=\"large\"\n              onClick={goNext}\n              className={styles.nextBtnHalf}\n            >\n              下一步\n            </Button>\n          </div>\n        </div>\n      )}\n\n      {/* Step 4: 填写数量和用途 */}\n      {currentStep === 3 && (\n        <div className={styles.stepContent}>\n          <p className={styles.hint}>请为每个物品填写需求数量和用途</p>\n          <div className={styles.itemList}>\n            {selectedItems.map((item, index) => (\n              <Card key={item.productId} className={styles.itemCard}>\n                <div className={styles.itemHeader}>\n                  <span className={styles.itemName}>{item.productName}</span>\n                  <Tag color=\"primary\" fill=\"outline\">\n                    {item.categoryName}\n                  </Tag>\n                </div>\n                <div className={styles.itemPrice}>\n                  单价: ¥{item.price?.toFixed(2)} / {item.unit}\n                </div>\n                <div className={styles.formItem}>\n                  <label className={styles.label}>\n                    <span className={styles.required}>*</span> 数量\n                  </label>\n                  <Stepper\n                    min={1}\n                    max={9999}\n                    value={item.quantity}\n                    onChange={(val) => {\n                      const newItems = [...selectedItems];\n                      newItems[index] = { ...item, quantity: val };\n                      setSelectedItems(newItems);\n                    }}\n                  />\n                </div>\n                <div className={styles.formItem}>\n                  <label className={styles.label}>\n                    <span className={styles.required}>*</span> 用途\n                  </label>\n                  <TextArea\n                    placeholder=\"请输入用途说明\"\n                    value={item.purpose}\n                    onChange={(val) => {\n                      const newItems = [...selectedItems];\n                      newItems[index] = { ...item, purpose: val };\n                      setSelectedItems(newItems);\n                    }}\n                    rows={2}\n                    className={styles.textarea}\n                  />\n                </div>\n              </Card>\n            ))}\n          </div>\n\n          <div className={styles.summary}>\n            <div className={styles.summaryRow}>\n              <span>提交人</span>\n              <span>{employeeName} - {department}</span>\n            </div>\n            <div className={styles.summaryRow}>\n              <span>物品总数</span>\n              <span>{selectedItems.reduce((sum, i) => sum + i.quantity, 0)} 件</span>\n            </div>\n          </div>\n\n          <div className={styles.btnGroup}>\n            <Button size=\"large\" onClick={goBack} className={styles.backBtn}>\n              上一步\n            </Button>\n            <Button\n              color=\"primary\"\n              size=\"large\"\n              loading={submitting}\n              onClick={handleSubmit}\n              className={styles.nextBtnHalf}\n            >\n              提交\n            </Button>\n          </div>\n        </div>\n      )}\n    </div>\n  );\n};\n\n// 品类图标映射\nfunction getCategoryIcon(name: string): string {\n  const iconMap: Record<string, string> = {\n    '桌面办公用品': '✂️',\n    '办公耗材': '🖨️',\n    '办公用笔': '🖊️',\n    '本、簿、贴类': '📒',\n    '文件整理用具': '📁',\n    '日用劳保': '🧹',\n    '办公设备': '🖥️',\n    '电子数码': '🔋',\n    '文化用品': '🏆',\n  };\n  return iconMap[name] || '📦';\n}\n\nexport default SubmitPage;\n",
+      "__isJSFile": true,
+      "__absFile": "/Users/shizu/code/materialPurchase/client/src/pages/mobile/submit/index.tsx"
+    },
+    "2": {
+      "path": "/admin/login",
+      "file": "@/pages/admin/login/index.tsx",
+      "id": "2",
+      "absPath": "/admin/login",
+      "__content": "import React, { useState } from 'react';\nimport { useNavigate } from 'umi';\nimport { Form, Input, Button, Card, Typography, message } from 'antd';\nimport { UserOutlined, LockOutlined } from '@ant-design/icons';\nimport { adminLogin } from '@/services/api';\n\nconst { Title, Text } = Typography;\n\nconst LoginPage: React.FC = () => {\n  const navigate = useNavigate();\n  const [loading, setLoading] = useState(false);\n\n  const onFinish = async (values: { username: string; password: string }) => {\n    try {\n      setLoading(true);\n      const res: any = await adminLogin(values);\n      if (res.code === 0) {\n        localStorage.setItem('admin_token', res.data.token);\n        message.success('登录成功');\n        navigate('/admin/dashboard', { replace: true });\n      } else {\n        message.error(res.message || '登录失败');\n      }\n    } catch (err: any) {\n      message.error(err.message || '登录失败');\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return (\n    <div\n      style={{\n        minHeight: '100vh',\n        display: 'flex',\n        alignItems: 'center',\n        justifyContent: 'center',\n        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',\n      }}\n    >\n      <Card\n        style={{\n          width: 400,\n          borderRadius: 16,\n          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',\n        }}\n        bordered={false}\n      >\n        <div style={{ textAlign: 'center', marginBottom: 32 }}>\n          <div style={{ fontSize: 48, marginBottom: 12 }}>📦</div>\n          <Title level={3} style={{ marginBottom: 4 }}>\n            采购管理系统\n          </Title>\n          <Text type=\"secondary\">管理员登录</Text>\n        </div>\n\n        <Form\n          name=\"login\"\n          onFinish={onFinish}\n          size=\"large\"\n          autoComplete=\"off\"\n        >\n          <Form.Item\n            name=\"username\"\n            rules={[{ required: true, message: '请输入用户名' }]}\n          >\n            <Input\n              prefix={<UserOutlined />}\n              placeholder=\"用户名\"\n              autoFocus\n            />\n          </Form.Item>\n\n          <Form.Item\n            name=\"password\"\n            rules={[{ required: true, message: '请输入密码' }]}\n          >\n            <Input.Password prefix={<LockOutlined />} placeholder=\"密码\" />\n          </Form.Item>\n\n          <Form.Item>\n            <Button\n              type=\"primary\"\n              htmlType=\"submit\"\n              block\n              loading={loading}\n              style={{\n                height: 48,\n                borderRadius: 8,\n                fontSize: 16,\n                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',\n                border: 'none',\n              }}\n            >\n              登 录\n            </Button>\n          </Form.Item>\n        </Form>\n      </Card>\n    </div>\n  );\n};\n\nexport default LoginPage;\n",
+      "__isJSFile": true,
+      "__absFile": "/Users/shizu/code/materialPurchase/client/src/pages/admin/login/index.tsx"
+    },
+    "3": {
+      "path": "/admin",
+      "file": "@/layouts/AdminLayout.tsx",
+      "id": "3",
+      "absPath": "/admin",
+      "__content": "import React, { useEffect } from 'react';\nimport { Outlet, useNavigate, useLocation } from 'umi';\nimport { Layout, Menu, Button, Typography, theme } from 'antd';\nimport {\n  DashboardOutlined,\n  FileTextOutlined,\n  AppstoreOutlined,\n  SettingOutlined,\n  LogoutOutlined,\n} from '@ant-design/icons';\n\nconst { Header, Sider, Content } = Layout;\nconst { Title } = Typography;\n\nconst AdminLayout: React.FC = () => {\n  const navigate = useNavigate();\n  const location = useLocation();\n  const { token: themeToken } = theme.useToken();\n\n  // 检查登录状态\n  useEffect(() => {\n    const adminToken = localStorage.getItem('admin_token');\n    if (!adminToken) {\n      navigate('/admin/login', { replace: true });\n    }\n  }, [navigate]);\n\n  const handleLogout = () => {\n    localStorage.removeItem('admin_token');\n    navigate('/admin/login', { replace: true });\n  };\n\n  const menuItems = [\n    {\n      key: '/admin/dashboard',\n      icon: <DashboardOutlined />,\n      label: '采购周期管理',\n    },\n    {\n      key: '/admin/requests',\n      icon: <FileTextOutlined />,\n      label: '需求明细',\n    },\n    {\n      key: '/admin/products',\n      icon: <AppstoreOutlined />,\n      label: '物品管理',\n    },\n    {\n      key: '/admin/settings',\n      icon: <SettingOutlined />,\n      label: '系统设置',\n    },\n  ];\n\n  return (\n    <Layout style={{ minHeight: '100vh' }}>\n      <Sider\n        width={220}\n        style={{\n          background: 'linear-gradient(180deg, #1a1a2e 0%, #16213e 100%)',\n        }}\n      >\n        <div\n          style={{\n            padding: '20px 16px',\n            textAlign: 'center',\n            borderBottom: '1px solid rgba(255,255,255,0.08)',\n          }}\n        >\n          <Title\n            level={4}\n            style={{\n              color: 'white',\n              margin: 0,\n              fontSize: 16,\n              fontWeight: 600,\n              letterSpacing: 1,\n            }}\n          >\n            📦 采购管理系统\n          </Title>\n        </div>\n        <Menu\n          theme=\"dark\"\n          mode=\"inline\"\n          selectedKeys={[location.pathname]}\n          items={menuItems}\n          onClick={({ key }) => navigate(key)}\n          style={{\n            background: 'transparent',\n            marginTop: 8,\n          }}\n        />\n      </Sider>\n      <Layout>\n        <Header\n          style={{\n            background: 'white',\n            padding: '0 24px',\n            display: 'flex',\n            justifyContent: 'flex-end',\n            alignItems: 'center',\n            boxShadow: '0 1px 4px rgba(0,0,0,0.04)',\n          }}\n        >\n          <Button\n            type=\"text\"\n            icon={<LogoutOutlined />}\n            onClick={handleLogout}\n            danger\n          >\n            退出登录\n          </Button>\n        </Header>\n        <Content\n          style={{\n            margin: 24,\n            padding: 24,\n            background: '#f0f2f5',\n            borderRadius: 8,\n            minHeight: 'auto',\n          }}\n        >\n          <Outlet />\n        </Content>\n      </Layout>\n    </Layout>\n  );\n};\n\nexport default AdminLayout;\n",
+      "__isJSFile": true,
+      "__absFile": "/Users/shizu/code/materialPurchase/client/src/layouts/AdminLayout.tsx"
+    },
+    "4": {
+      "path": "/admin/dashboard",
+      "file": "@/pages/admin/dashboard/index.tsx",
+      "parentId": "3",
+      "id": "4",
+      "absPath": "/admin/dashboard",
+      "__content": "import React, { useState, useEffect } from 'react';\nimport {\n  Card,\n  Table,\n  Button,\n  Tag,\n  Modal,\n  Form,\n  Input,\n  Statistic,\n  Row,\n  Col,\n  message,\n  Space,\n  Popconfirm,\n  Typography,\n} from 'antd';\nimport {\n  PlusOutlined,\n  PlayCircleOutlined,\n  PauseCircleOutlined,\n  QrcodeOutlined,\n} from '@ant-design/icons';\nimport { QRCodeSVG } from 'qrcode.react';\nimport {\n  getPeriods,\n  createPeriod,\n  closePeriod,\n  activatePeriod,\n  getStatistics,\n} from '@/services/api';\n\nconst { Title, Text } = Typography;\n\nconst DashboardPage: React.FC = () => {\n  const [periods, setPeriods] = useState<any[]>([]);\n  const [loading, setLoading] = useState(false);\n  const [createModalOpen, setCreateModalOpen] = useState(false);\n  const [qrModalOpen, setQrModalOpen] = useState(false);\n  const [statistics, setStatistics] = useState<any>(null);\n  const [activePeriodId, setActivePeriodId] = useState<number | null>(null);\n  const [form] = Form.useForm();\n\n  useEffect(() => {\n    loadPeriods();\n  }, []);\n\n  const loadPeriods = async () => {\n    try {\n      setLoading(true);\n      const res: any = await getPeriods();\n      if (res.code === 0) {\n        setPeriods(res.data);\n        // 找到活跃的周期并加载统计\n        const active = res.data.find((p: any) => p.status === 'active');\n        if (active) {\n          setActivePeriodId(active.id);\n          loadStatistics(active.id);\n        }\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  const loadStatistics = async (periodId: number) => {\n    try {\n      const res: any = await getStatistics(periodId);\n      if (res.code === 0) {\n        setStatistics(res.data);\n      }\n    } catch (err) {\n      console.error(err);\n    }\n  };\n\n  const handleCreate = async () => {\n    try {\n      const values = await form.validateFields();\n      const res: any = await createPeriod({ title: values.title });\n      if (res.code === 0) {\n        message.success('创建成功');\n        setCreateModalOpen(false);\n        form.resetFields();\n        loadPeriods();\n      } else {\n        message.error(res.message);\n      }\n    } catch (err) {\n      // form validation error\n    }\n  };\n\n  const handleClose = async (id: number) => {\n    try {\n      const res: any = await closePeriod(id);\n      if (res.code === 0) {\n        message.success('已关闭');\n        loadPeriods();\n      }\n    } catch (err) {\n      message.error('操作失败');\n    }\n  };\n\n  const handleActivate = async (id: number) => {\n    try {\n      const res: any = await activatePeriod(id);\n      if (res.code === 0) {\n        message.success('已激活');\n        loadPeriods();\n      }\n    } catch (err) {\n      message.error('操作失败');\n    }\n  };\n\n  const mobileUrl = `${window.location.origin}/mobile/submit`;\n\n  const columns = [\n    {\n      title: '周期名称',\n      dataIndex: 'title',\n      key: 'title',\n      render: (text: string) => <Text strong>{text}</Text>,\n    },\n    {\n      title: '状态',\n      dataIndex: 'status',\n      key: 'status',\n      render: (status: string) =>\n        status === 'active' ? (\n          <Tag color=\"green\">进行中</Tag>\n        ) : (\n          <Tag color=\"default\">已关闭</Tag>\n        ),\n    },\n    {\n      title: '创建时间',\n      dataIndex: 'created_at',\n      key: 'created_at',\n    },\n    {\n      title: '关闭时间',\n      dataIndex: 'closed_at',\n      key: 'closed_at',\n      render: (text: string) => text || '-',\n    },\n    {\n      title: '操作',\n      key: 'action',\n      render: (_: any, record: any) => (\n        <Space>\n          {record.status === 'active' ? (\n            <Popconfirm\n              title=\"确认关闭此采购周期？\"\n              onConfirm={() => handleClose(record.id)}\n            >\n              <Button\n                type=\"link\"\n                danger\n                icon={<PauseCircleOutlined />}\n              >\n                关闭\n              </Button>\n            </Popconfirm>\n          ) : (\n            <Popconfirm\n              title=\"确认激活此采购周期？（当前活跃的周期将被关闭）\"\n              onConfirm={() => handleActivate(record.id)}\n            >\n              <Button type=\"link\" icon={<PlayCircleOutlined />}>\n                激活\n              </Button>\n            </Popconfirm>\n          )}\n        </Space>\n      ),\n    },\n  ];\n\n  return (\n    <div>\n      {/* 统计卡片 */}\n      {statistics && activePeriodId && (\n        <Row gutter={16} style={{ marginBottom: 24 }}>\n          <Col span={8}>\n            <Card\n              style={{ borderRadius: 12 }}\n              bodyStyle={{ padding: '20px 24px' }}\n            >\n              <Statistic\n                title=\"总提交次数\"\n                value={statistics.totalRequests}\n                valueStyle={{ color: '#667eea' }}\n              />\n            </Card>\n          </Col>\n          <Col span={8}>\n            <Card\n              style={{ borderRadius: 12 }}\n              bodyStyle={{ padding: '20px 24px' }}\n            >\n              <Statistic\n                title=\"提交人数\"\n                value={statistics.totalEmployees}\n                valueStyle={{ color: '#52c41a' }}\n              />\n            </Card>\n          </Col>\n          <Col span={8}>\n            <Card\n              style={{ borderRadius: 12 }}\n              bodyStyle={{ padding: '20px 24px' }}\n            >\n              <Statistic\n                title=\"涉及品类数\"\n                value={statistics.categoryStats?.length || 0}\n                valueStyle={{ color: '#faad14' }}\n              />\n            </Card>\n          </Col>\n        </Row>\n      )}\n\n      {/* 周期管理 */}\n      <Card\n        title={<Title level={5} style={{ margin: 0 }}>采购周期管理</Title>}\n        extra={\n          <Space>\n            <Button\n              icon={<QrcodeOutlined />}\n              onClick={() => setQrModalOpen(true)}\n            >\n              查看二维码\n            </Button>\n            <Button\n              type=\"primary\"\n              icon={<PlusOutlined />}\n              onClick={() => setCreateModalOpen(true)}\n              style={{\n                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',\n                border: 'none',\n              }}\n            >\n              新建采购周期\n            </Button>\n          </Space>\n        }\n        style={{ borderRadius: 12 }}\n      >\n        <Table\n          dataSource={periods}\n          columns={columns}\n          rowKey=\"id\"\n          loading={loading}\n          pagination={{ pageSize: 10 }}\n        />\n      </Card>\n\n      {/* 创建周期弹窗 */}\n      <Modal\n        title=\"新建采购周期\"\n        open={createModalOpen}\n        onOk={handleCreate}\n        onCancel={() => {\n          setCreateModalOpen(false);\n          form.resetFields();\n        }}\n        okText=\"创建\"\n        cancelText=\"取消\"\n      >\n        <Form form={form} layout=\"vertical\">\n          <Form.Item\n            name=\"title\"\n            label=\"周期名称\"\n            rules={[{ required: true, message: '请输入周期名称' }]}\n          >\n            <Input placeholder=\"例如：2026年5月采购\" />\n          </Form.Item>\n        </Form>\n        <Text type=\"secondary\">\n          注意：创建新周期后，当前活跃的周期将自动关闭\n        </Text>\n      </Modal>\n\n      {/* 二维码弹窗 */}\n      <Modal\n        title=\"员工扫码入口\"\n        open={qrModalOpen}\n        onCancel={() => setQrModalOpen(false)}\n        footer={null}\n        width={400}\n      >\n        <div style={{ textAlign: 'center', padding: '20px 0' }}>\n          <QRCodeSVG value={mobileUrl} size={200} />\n          <div style={{ marginTop: 16 }}>\n            <Text type=\"secondary\" copyable={{ text: mobileUrl }}>\n              {mobileUrl}\n            </Text>\n          </div>\n          <div style={{ marginTop: 12 }}>\n            <Text type=\"secondary\">\n              员工扫描此二维码即可填写采购需求\n            </Text>\n          </div>\n        </div>\n      </Modal>\n    </div>\n  );\n};\n\nexport default DashboardPage;\n",
+      "__isJSFile": true,
+      "__absFile": "/Users/shizu/code/materialPurchase/client/src/pages/admin/dashboard/index.tsx"
+    },
+    "5": {
+      "path": "/admin/requests",
+      "file": "@/pages/admin/requests/index.tsx",
+      "parentId": "3",
+      "id": "5",
+      "absPath": "/admin/requests",
+      "__content": "import React, { useState, useEffect } from 'react';\nimport {\n  Card,\n  Table,\n  Button,\n  Select,\n  Input,\n  Space,\n  Modal,\n  Form,\n  Descriptions,\n  Tag,\n  Popconfirm,\n  message,\n  Typography,\n  InputNumber,\n} from 'antd';\nimport {\n  SearchOutlined,\n  ExportOutlined,\n  EyeOutlined,\n  EditOutlined,\n  DeleteOutlined,\n} from '@ant-design/icons';\nimport {\n  getPeriods,\n  getRequests,\n  getRequestDetail,\n  updateRequest,\n  deleteRequest,\n  getExportUrl,\n} from '@/services/api';\n\nconst { Title, Text } = Typography;\n\nconst RequestsPage: React.FC = () => {\n  const [periods, setPeriods] = useState<any[]>([]);\n  const [selectedPeriodId, setSelectedPeriodId] = useState<number | undefined>();\n  const [departmentFilter, setDepartmentFilter] = useState('');\n  const [requests, setRequests] = useState<any[]>([]);\n  const [total, setTotal] = useState(0);\n  const [page, setPage] = useState(1);\n  const [pageSize, setPageSize] = useState(20);\n  const [loading, setLoading] = useState(false);\n\n  // 详情弹窗\n  const [detailModalOpen, setDetailModalOpen] = useState(false);\n  const [currentDetail, setCurrentDetail] = useState<any>(null);\n\n  // 编辑弹窗\n  const [editModalOpen, setEditModalOpen] = useState(false);\n  const [editData, setEditData] = useState<any>(null);\n  const [editForm] = Form.useForm();\n\n  useEffect(() => {\n    loadPeriods();\n  }, []);\n\n  useEffect(() => {\n    if (selectedPeriodId) {\n      loadRequests();\n    }\n  }, [selectedPeriodId, page, pageSize]);\n\n  const loadPeriods = async () => {\n    try {\n      const res: any = await getPeriods();\n      if (res.code === 0) {\n        setPeriods(res.data);\n        // 默认选中活跃的周期\n        const active = res.data.find((p: any) => p.status === 'active');\n        if (active) {\n          setSelectedPeriodId(active.id);\n        } else if (res.data.length > 0) {\n          setSelectedPeriodId(res.data[0].id);\n        }\n      }\n    } catch (err) {\n      console.error(err);\n    }\n  };\n\n  const loadRequests = async () => {\n    if (!selectedPeriodId) return;\n    try {\n      setLoading(true);\n      const res: any = await getRequests({\n        periodId: selectedPeriodId,\n        department: departmentFilter,\n        page,\n        pageSize,\n      });\n      if (res.code === 0) {\n        setRequests(res.data.list);\n        setTotal(res.data.total);\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  const handleSearch = () => {\n    setPage(1);\n    loadRequests();\n  };\n\n  const handleViewDetail = async (id: number) => {\n    try {\n      const res: any = await getRequestDetail(id);\n      if (res.code === 0) {\n        setCurrentDetail(res.data);\n        setDetailModalOpen(true);\n      }\n    } catch (err) {\n      message.error('获取详情失败');\n    }\n  };\n\n  const handleEdit = async (id: number) => {\n    try {\n      const res: any = await getRequestDetail(id);\n      if (res.code === 0) {\n        setEditData(res.data);\n        editForm.setFieldsValue({\n          employeeName: res.data.employee_name,\n          department: res.data.department,\n          items: res.data.items.map((item: any) => ({\n            productId: item.product_id,\n            productName: item.product_name,\n            quantity: item.quantity,\n            purpose: item.purpose,\n          })),\n        });\n        setEditModalOpen(true);\n      }\n    } catch (err) {\n      message.error('获取详情失败');\n    }\n  };\n\n  const handleEditSubmit = async () => {\n    try {\n      const values = await editForm.validateFields();\n      const res: any = await updateRequest(editData.id, {\n        employeeName: values.employeeName,\n        department: values.department,\n        items: values.items.map((item: any) => ({\n          productId: item.productId,\n          quantity: item.quantity,\n          purpose: item.purpose,\n        })),\n      });\n      if (res.code === 0) {\n        message.success('更新成功');\n        setEditModalOpen(false);\n        loadRequests();\n      } else {\n        message.error(res.message);\n      }\n    } catch (err) {\n      // form validation error\n    }\n  };\n\n  const handleDelete = async (id: number) => {\n    try {\n      const res: any = await deleteRequest(id);\n      if (res.code === 0) {\n        message.success('删除成功');\n        loadRequests();\n      } else {\n        message.error(res.message);\n      }\n    } catch (err) {\n      message.error('删除失败');\n    }\n  };\n\n  const handleExport = () => {\n    if (!selectedPeriodId) {\n      message.warning('请先选择采购周期');\n      return;\n    }\n    // 通过 window.open 下载\n    const token = localStorage.getItem('admin_token');\n    window.open(\n      `/api/admin/export?periodId=${selectedPeriodId}&token=${token}`,\n      '_blank',\n    );\n  };\n\n  const columns = [\n    {\n      title: '提交时间',\n      dataIndex: 'created_at',\n      key: 'created_at',\n      width: 180,\n    },\n    {\n      title: '姓名',\n      dataIndex: 'employee_name',\n      key: 'employee_name',\n      width: 100,\n    },\n    {\n      title: '部门',\n      dataIndex: 'department',\n      key: 'department',\n      width: 120,\n    },\n    {\n      title: '物品数',\n      dataIndex: 'itemCount',\n      key: 'itemCount',\n      width: 80,\n      render: (count: number) => <Tag color=\"blue\">{count} 种</Tag>,\n    },\n    {\n      title: '操作',\n      key: 'action',\n      width: 200,\n      render: (_: any, record: any) => (\n        <Space>\n          <Button\n            type=\"link\"\n            size=\"small\"\n            icon={<EyeOutlined />}\n            onClick={() => handleViewDetail(record.id)}\n          >\n            详情\n          </Button>\n          <Button\n            type=\"link\"\n            size=\"small\"\n            icon={<EditOutlined />}\n            onClick={() => handleEdit(record.id)}\n          >\n            编辑\n          </Button>\n          <Popconfirm\n            title=\"确认删除此条记录？\"\n            onConfirm={() => handleDelete(record.id)}\n          >\n            <Button type=\"link\" size=\"small\" danger icon={<DeleteOutlined />}>\n              删除\n            </Button>\n          </Popconfirm>\n        </Space>\n      ),\n    },\n  ];\n\n  const detailItemColumns = [\n    { title: '品类', dataIndex: 'category_name', key: 'category_name' },\n    { title: '物品名称', dataIndex: 'product_name', key: 'product_name' },\n    { title: '单位', dataIndex: 'unit', key: 'unit', width: 60 },\n    { title: '规格', dataIndex: 'spec', key: 'spec' },\n    {\n      title: '含税单价',\n      dataIndex: 'price',\n      key: 'price',\n      render: (v: number) => `¥${v?.toFixed(2)}`,\n    },\n    { title: '数量', dataIndex: 'quantity', key: 'quantity', width: 60 },\n    { title: '用途', dataIndex: 'purpose', key: 'purpose' },\n  ];\n\n  return (\n    <div>\n      <Card\n        title={<Title level={5} style={{ margin: 0 }}>采购需求明细</Title>}\n        extra={\n          <Button\n            type=\"primary\"\n            icon={<ExportOutlined />}\n            onClick={handleExport}\n            style={{\n              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',\n              border: 'none',\n            }}\n          >\n            导出 Excel\n          </Button>\n        }\n        style={{ borderRadius: 12 }}\n      >\n        {/* 筛选栏 */}\n        <Space style={{ marginBottom: 16 }} wrap>\n          <Select\n            placeholder=\"选择采购周期\"\n            value={selectedPeriodId}\n            onChange={(val) => {\n              setSelectedPeriodId(val);\n              setPage(1);\n            }}\n            style={{ width: 200 }}\n            options={periods.map((p) => ({\n              label: `${p.title}${p.status === 'active' ? '（进行中）' : ''}`,\n              value: p.id,\n            }))}\n          />\n          <Input\n            placeholder=\"按部门筛选\"\n            value={departmentFilter}\n            onChange={(e) => setDepartmentFilter(e.target.value)}\n            style={{ width: 160 }}\n            allowClear\n          />\n          <Button\n            type=\"primary\"\n            icon={<SearchOutlined />}\n            onClick={handleSearch}\n          >\n            搜索\n          </Button>\n        </Space>\n\n        {/* 表格 */}\n        <Table\n          dataSource={requests}\n          columns={columns}\n          rowKey=\"id\"\n          loading={loading}\n          pagination={{\n            current: page,\n            pageSize: pageSize,\n            total: total,\n            showSizeChanger: true,\n            showTotal: (total) => `共 ${total} 条`,\n            onChange: (p, ps) => {\n              setPage(p);\n              setPageSize(ps);\n            },\n          }}\n        />\n      </Card>\n\n      {/* 详情弹窗 */}\n      <Modal\n        title=\"采购需求详情\"\n        open={detailModalOpen}\n        onCancel={() => setDetailModalOpen(false)}\n        footer={null}\n        width={800}\n      >\n        {currentDetail && (\n          <>\n            <Descriptions bordered column={2} style={{ marginBottom: 16 }}>\n              <Descriptions.Item label=\"姓名\">\n                {currentDetail.employee_name}\n              </Descriptions.Item>\n              <Descriptions.Item label=\"部门\">\n                {currentDetail.department}\n              </Descriptions.Item>\n              <Descriptions.Item label=\"提交时间\" span={2}>\n                {currentDetail.created_at}\n              </Descriptions.Item>\n            </Descriptions>\n            <Table\n              dataSource={currentDetail.items}\n              columns={detailItemColumns}\n              rowKey=\"id\"\n              pagination={false}\n              size=\"small\"\n            />\n          </>\n        )}\n      </Modal>\n\n      {/* 编辑弹窗 */}\n      <Modal\n        title=\"编辑采购需求\"\n        open={editModalOpen}\n        onOk={handleEditSubmit}\n        onCancel={() => setEditModalOpen(false)}\n        okText=\"保存\"\n        cancelText=\"取消\"\n        width={700}\n      >\n        <Form form={editForm} layout=\"vertical\">\n          <Form.Item\n            name=\"employeeName\"\n            label=\"姓名\"\n            rules={[{ required: true, message: '请输入姓名' }]}\n          >\n            <Input />\n          </Form.Item>\n          <Form.Item\n            name=\"department\"\n            label=\"部门\"\n            rules={[{ required: true, message: '请输入部门' }]}\n          >\n            <Input />\n          </Form.Item>\n\n          <Form.List name=\"items\">\n            {(fields) => (\n              <div>\n                <Text strong style={{ display: 'block', marginBottom: 8 }}>\n                  物品明细\n                </Text>\n                {fields.map((field) => {\n                  const item = editForm.getFieldValue(['items', field.name]);\n                  return (\n                    <Card\n                      key={field.key}\n                      size=\"small\"\n                      style={{ marginBottom: 8 }}\n                      title={item?.productName}\n                    >\n                      <Space>\n                        <Form.Item\n                          {...field}\n                          name={[field.name, 'quantity']}\n                          label=\"数量\"\n                          rules={[{ required: true, message: '请输入数量' }]}\n                          style={{ marginBottom: 0 }}\n                        >\n                          <InputNumber min={1} />\n                        </Form.Item>\n                        <Form.Item\n                          {...field}\n                          name={[field.name, 'purpose']}\n                          label=\"用途\"\n                          rules={[{ required: true, message: '请输入用途' }]}\n                          style={{ marginBottom: 0 }}\n                        >\n                          <Input style={{ width: 300 }} />\n                        </Form.Item>\n                      </Space>\n                      <Form.Item\n                        {...field}\n                        name={[field.name, 'productId']}\n                        hidden\n                      >\n                        <Input />\n                      </Form.Item>\n                    </Card>\n                  );\n                })}\n              </div>\n            )}\n          </Form.List>\n        </Form>\n      </Modal>\n    </div>\n  );\n};\n\nexport default RequestsPage;\n",
+      "__isJSFile": true,
+      "__absFile": "/Users/shizu/code/materialPurchase/client/src/pages/admin/requests/index.tsx"
+    },
+    "6": {
+      "path": "/admin/products",
+      "file": "@/pages/admin/products/index.tsx",
+      "parentId": "3",
+      "id": "6",
+      "absPath": "/admin/products",
+      "__content": "import React, { useState, useEffect, useCallback } from 'react';\nimport {\n  Card,\n  Table,\n  Button,\n  Input,\n  Select,\n  Space,\n  Modal,\n  Form,\n  InputNumber,\n  Popconfirm,\n  Upload,\n  Tag,\n  message,\n  Typography,\n  Result,\n} from 'antd';\nimport {\n  PlusOutlined,\n  ImportOutlined,\n  SearchOutlined,\n  EditOutlined,\n  DeleteOutlined,\n  UploadOutlined,\n} from '@ant-design/icons';\nimport type { UploadProps } from 'antd';\nimport {\n  getAdminProducts,\n  createAdminProduct,\n  updateAdminProduct,\n  deleteAdminProduct,\n  importAdminProducts,\n  getCategories,\n} from '@/services/api';\n\nconst { Title, Text } = Typography;\n\nconst ProductsPage: React.FC = () => {\n  // 列表状态\n  const [products, setProducts] = useState<any[]>([]);\n  const [total, setTotal] = useState(0);\n  const [page, setPage] = useState(1);\n  const [pageSize, setPageSize] = useState(20);\n  const [loading, setLoading] = useState(false);\n  const [keyword, setKeyword] = useState('');\n  const [selectedCategoryId, setSelectedCategoryId] = useState<number | undefined>();\n  const [categories, setCategories] = useState<any[]>([]);\n\n  // 新增/编辑弹窗\n  const [formModalOpen, setFormModalOpen] = useState(false);\n  const [editingProduct, setEditingProduct] = useState<any>(null);\n  const [formLoading, setFormLoading] = useState(false);\n  const [form] = Form.useForm();\n\n  // 导入弹窗\n  const [importModalOpen, setImportModalOpen] = useState(false);\n  const [importLoading, setImportLoading] = useState(false);\n  const [importResult, setImportResult] = useState<any>(null);\n\n  // 初始化\n  useEffect(() => {\n    loadCategories();\n  }, []);\n\n  useEffect(() => {\n    loadProducts();\n  }, [page, pageSize]);\n\n  const loadCategories = async () => {\n    try {\n      const res: any = await getCategories();\n      if (res.code === 0) {\n        setCategories(res.data);\n      }\n    } catch (err) {\n      console.error(err);\n    }\n  };\n\n  const loadProducts = useCallback(async () => {\n    try {\n      setLoading(true);\n      const res: any = await getAdminProducts({\n        keyword,\n        categoryId: selectedCategoryId,\n        page,\n        pageSize,\n      });\n      if (res.code === 0) {\n        setProducts(res.data.list);\n        setTotal(res.data.total);\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  }, [keyword, selectedCategoryId, page, pageSize]);\n\n  const handleSearch = () => {\n    setPage(1);\n    loadProducts();\n  };\n\n  // 新增\n  const handleAdd = () => {\n    setEditingProduct(null);\n    form.resetFields();\n    setFormModalOpen(true);\n  };\n\n  // 编辑\n  const handleEdit = (record: any) => {\n    setEditingProduct(record);\n    form.setFieldsValue({\n      categoryName: record.category_name,\n      name: record.name,\n      unit: record.unit,\n      spec: record.spec,\n      price: record.price,\n      skuCode: record.sku_code,\n    });\n    setFormModalOpen(true);\n  };\n\n  // 提交新增/编辑\n  const handleFormSubmit = async () => {\n    try {\n      const values = await form.validateFields();\n      setFormLoading(true);\n\n      let res: any;\n      if (editingProduct) {\n        res = await updateAdminProduct(editingProduct.id, values);\n      } else {\n        res = await createAdminProduct(values);\n      }\n\n      if (res.code === 0) {\n        message.success(editingProduct ? '更新成功' : '添加成功');\n        setFormModalOpen(false);\n        form.resetFields();\n        loadProducts();\n        loadCategories(); // 刷新品类列表（可能新建了品类）\n      } else {\n        message.error(res.message);\n      }\n    } catch (err: any) {\n      if (err.message) message.error(err.message);\n    } finally {\n      setFormLoading(false);\n    }\n  };\n\n  // 删除\n  const handleDelete = async (id: number) => {\n    try {\n      const res: any = await deleteAdminProduct(id);\n      if (res.code === 0) {\n        message.success('删除成功');\n        loadProducts();\n      } else {\n        message.error(res.message);\n      }\n    } catch (err: any) {\n      message.error(err.message || '删除失败');\n    }\n  };\n\n  // 导入\n  const handleImport = async (file: File) => {\n    try {\n      setImportLoading(true);\n      setImportResult(null);\n      const res: any = await importAdminProducts(file);\n      if (res.code === 0) {\n        setImportResult(res.data);\n        message.success(res.message);\n        loadProducts();\n        loadCategories();\n      } else {\n        message.error(res.message);\n      }\n    } catch (err: any) {\n      message.error(err.message || '导入失败');\n    } finally {\n      setImportLoading(false);\n    }\n    return false; // 阻止 Upload 组件默认上传\n  };\n\n  const uploadProps: UploadProps = {\n    accept: '.xlsx,.xls',\n    showUploadList: false,\n    beforeUpload: (file) => {\n      handleImport(file);\n      return false;\n    },\n  };\n\n  const columns = [\n    {\n      title: '品类',\n      dataIndex: 'category_name',\n      key: 'category_name',\n      width: 130,\n      render: (text: string) => <Tag color=\"blue\">{text}</Tag>,\n    },\n    {\n      title: '物资名称',\n      dataIndex: 'name',\n      key: 'name',\n      ellipsis: true,\n    },\n    {\n      title: '单位',\n      dataIndex: 'unit',\n      key: 'unit',\n      width: 70,\n    },\n    {\n      title: '规格',\n      dataIndex: 'spec',\n      key: 'spec',\n      width: 140,\n      ellipsis: true,\n    },\n    {\n      title: '含税价(元)',\n      dataIndex: 'price',\n      key: 'price',\n      width: 110,\n      render: (val: number) => (\n        <Text style={{ color: '#ff6b35', fontWeight: 500 }}>\n          ¥{val?.toFixed(2)}\n        </Text>\n      ),\n    },\n    {\n      title: 'SKU编码',\n      dataIndex: 'sku_code',\n      key: 'sku_code',\n      width: 130,\n      render: (text: string) => <Text code>{text}</Text>,\n    },\n    {\n      title: '操作',\n      key: 'action',\n      width: 140,\n      render: (_: any, record: any) => (\n        <Space>\n          <Button\n            type=\"link\"\n            size=\"small\"\n            icon={<EditOutlined />}\n            onClick={() => handleEdit(record)}\n          >\n            编辑\n          </Button>\n          <Popconfirm\n            title=\"确认删除此物品？\"\n            description=\"如果该物品已有关联的采购记录则无法删除\"\n            onConfirm={() => handleDelete(record.id)}\n          >\n            <Button type=\"link\" size=\"small\" danger icon={<DeleteOutlined />}>\n              删除\n            </Button>\n          </Popconfirm>\n        </Space>\n      ),\n    },\n  ];\n\n  return (\n    <div>\n      <Card\n        title={<Title level={5} style={{ margin: 0 }}>物品管理</Title>}\n        extra={\n          <Space>\n            <Upload {...uploadProps}>\n              <Button icon={<ImportOutlined />} loading={importLoading}>\n                导入 Excel\n              </Button>\n            </Upload>\n            <Button\n              type=\"primary\"\n              icon={<PlusOutlined />}\n              onClick={handleAdd}\n              style={{\n                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',\n                border: 'none',\n              }}\n            >\n              手动添加\n            </Button>\n          </Space>\n        }\n        style={{ borderRadius: 12 }}\n      >\n        {/* 筛选栏 */}\n        <Space style={{ marginBottom: 16 }} wrap>\n          <Select\n            placeholder=\"按品类筛选\"\n            allowClear\n            value={selectedCategoryId}\n            onChange={(val) => setSelectedCategoryId(val)}\n            style={{ width: 160 }}\n            options={categories.map((c: any) => ({\n              label: c.name,\n              value: c.id,\n            }))}\n          />\n          <Input\n            placeholder=\"搜索物品名称或SKU\"\n            value={keyword}\n            onChange={(e) => setKeyword(e.target.value)}\n            onPressEnter={handleSearch}\n            style={{ width: 220 }}\n            allowClear\n          />\n          <Button\n            type=\"primary\"\n            icon={<SearchOutlined />}\n            onClick={handleSearch}\n          >\n            搜索\n          </Button>\n        </Space>\n\n        {/* 导入结果提示 */}\n        {importResult && (\n          <div\n            style={{\n              marginBottom: 16,\n              padding: '12px 16px',\n              background: '#f6ffed',\n              border: '1px solid #b7eb8f',\n              borderRadius: 8,\n            }}\n          >\n            <Text>\n              导入完成 — 新增{' '}\n              <Text strong style={{ color: '#52c41a' }}>\n                {importResult.created}\n              </Text>{' '}\n              条，覆盖{' '}\n              <Text strong style={{ color: '#faad14' }}>\n                {importResult.updated}\n              </Text>{' '}\n              条，跳过{' '}\n              <Text strong style={{ color: '#999' }}>\n                {importResult.skipped}\n              </Text>{' '}\n              条\n            </Text>\n            <Button\n              type=\"link\"\n              size=\"small\"\n              onClick={() => setImportResult(null)}\n              style={{ float: 'right' }}\n            >\n              关闭\n            </Button>\n          </div>\n        )}\n\n        {/* 表格 */}\n        <Table\n          dataSource={products}\n          columns={columns}\n          rowKey=\"id\"\n          loading={loading}\n          pagination={{\n            current: page,\n            pageSize,\n            total,\n            showSizeChanger: true,\n            showTotal: (t) => `共 ${t} 个物品`,\n            onChange: (p, ps) => {\n              setPage(p);\n              setPageSize(ps);\n            },\n          }}\n        />\n      </Card>\n\n      {/* 新增/编辑弹窗 */}\n      <Modal\n        title={editingProduct ? '编辑物品' : '手动添加物品'}\n        open={formModalOpen}\n        onOk={handleFormSubmit}\n        onCancel={() => {\n          setFormModalOpen(false);\n          form.resetFields();\n        }}\n        confirmLoading={formLoading}\n        okText={editingProduct ? '保存' : '添加'}\n        cancelText=\"取消\"\n        width={520}\n      >\n        <Form form={form} layout=\"vertical\" style={{ marginTop: 16 }}>\n          <Form.Item\n            name=\"categoryName\"\n            label=\"品类\"\n            rules={[{ required: true, message: '请选择或输入品类' }]}\n          >\n            <Select\n              showSearch\n              placeholder=\"选择品类或输入新品类\"\n              options={categories.map((c: any) => ({\n                label: c.name,\n                value: c.name,\n              }))}\n              filterOption={(input, option) =>\n                (option?.label as string)?.toLowerCase().includes(input.toLowerCase())\n              }\n            />\n          </Form.Item>\n          <Form.Item\n            name=\"name\"\n            label=\"物资名称\"\n            rules={[{ required: true, message: '请输入物资名称' }]}\n          >\n            <Input placeholder=\"请输入物资名称\" />\n          </Form.Item>\n          <Space style={{ display: 'flex' }} size=\"middle\">\n            <Form.Item\n              name=\"unit\"\n              label=\"单位\"\n              rules={[{ required: true, message: '请输入单位' }]}\n              style={{ flex: 1 }}\n            >\n              <Input placeholder=\"如：个、支、盒\" />\n            </Form.Item>\n            <Form.Item\n              name=\"price\"\n              label=\"含税价(元)\"\n              rules={[{ required: true, message: '请输入含税价' }]}\n              style={{ flex: 1 }}\n            >\n              <InputNumber\n                min={0}\n                step={0.01}\n                precision={2}\n                placeholder=\"0.00\"\n                style={{ width: '100%' }}\n              />\n            </Form.Item>\n          </Space>\n          <Form.Item\n            name=\"spec\"\n            label=\"规格\"\n            rules={[{ required: true, message: '请输入规格' }]}\n          >\n            <Input placeholder=\"请输入规格\" />\n          </Form.Item>\n          <Form.Item\n            name=\"skuCode\"\n            label=\"SKU编码\"\n            rules={[{ required: true, message: '请输入SKU编码' }]}\n          >\n            <Input placeholder=\"请输入唯一的SKU编码\" />\n          </Form.Item>\n        </Form>\n      </Modal>\n    </div>\n  );\n};\n\nexport default ProductsPage;\n",
+      "__isJSFile": true,
+      "__absFile": "/Users/shizu/code/materialPurchase/client/src/pages/admin/products/index.tsx"
+    },
+    "7": {
+      "path": "/admin/settings",
+      "file": "@/pages/admin/settings/index.tsx",
+      "parentId": "3",
+      "id": "7",
+      "absPath": "/admin/settings",
+      "__content": "import React, { useState } from 'react';\nimport { Card, Button, Typography, Modal, message, Alert, Space } from 'antd';\nimport {\n  ExclamationCircleFilled,\n  DeleteOutlined,\n} from '@ant-design/icons';\nimport { resetData } from '@/services/api';\n\nconst { Title, Text, Paragraph } = Typography;\n\nconst SettingsPage: React.FC = () => {\n  const [loading, setLoading] = useState(false);\n\n  const handleReset = () => {\n    Modal.confirm({\n      title: '确认重置所有数据？',\n      icon: <ExclamationCircleFilled />,\n      content: (\n        <div>\n          <Paragraph type=\"danger\" style={{ marginBottom: 8 }}>\n            此操作将清空以下所有数据，且不可恢复：\n          </Paragraph>\n          <ul style={{ paddingLeft: 20, color: '#666' }}>\n            <li>所有品类数据</li>\n            <li>所有物品数据</li>\n            <li>所有采购周期</li>\n            <li>所有员工采购需求记录</li>\n          </ul>\n          <Text type=\"secondary\">管理员账号不受影响。</Text>\n        </div>\n      ),\n      okText: '确认重置',\n      okType: 'danger',\n      cancelText: '取消',\n      async onOk() {\n        try {\n          setLoading(true);\n          const res: any = await resetData();\n          if (res.code === 0) {\n            message.success('数据已重置');\n          } else {\n            message.error(res.message || '重置失败');\n          }\n        } catch (err: any) {\n          message.error(err.message || '重置失败');\n        } finally {\n          setLoading(false);\n        }\n      },\n    });\n  };\n\n  return (\n    <div>\n      <Card\n        title={<Title level={5} style={{ margin: 0 }}>系统设置</Title>}\n        style={{ borderRadius: 12 }}\n      >\n        <Card\n          type=\"inner\"\n          title=\"数据管理\"\n          style={{ borderRadius: 8 }}\n        >\n          <Alert\n            message=\"危险操作\"\n            description=\"重置数据将清空所有品类、物品、采购周期和采购需求数据。管理员账号不受影响。此操作不可恢复，请谨慎操作。\"\n            type=\"warning\"\n            showIcon\n            style={{ marginBottom: 20 }}\n          />\n          <Button\n            danger\n            type=\"primary\"\n            icon={<DeleteOutlined />}\n            loading={loading}\n            onClick={handleReset}\n            size=\"large\"\n          >\n            重置所有数据\n          </Button>\n        </Card>\n      </Card>\n    </div>\n  );\n};\n\nexport default SettingsPage;\n",
+      "__isJSFile": true,
+      "__absFile": "/Users/shizu/code/materialPurchase/client/src/pages/admin/settings/index.tsx"
+    },
+    "8": {
+      "redirect": "/admin/dashboard",
+      "parentId": "3",
+      "id": "8",
+      "absPath": "/admin"
+    },
+    "9": {
+      "path": "/",
+      "redirect": "/mobile/submit",
+      "id": "9",
+      "absPath": "/"
+    }
+  },
+  "apiRoutes": {},
+  "hasSrcDir": true,
+  "npmClient": "npm",
+  "umi": {
+    "version": "4.6.51",
+    "name": "Umi",
+    "importSource": "umi",
+    "cliName": "umi"
+  },
+  "bundleStatus": {
+    "done": false
+  },
+  "mfsuBundleStatus": {
+    "done": false
+  },
+  "react": {
+    "version": "18.3.1",
+    "path": "/Users/shizu/code/materialPurchase/client/node_modules/react"
+  },
+  "react-dom": {
+    "version": "18.3.1",
+    "path": "/Users/shizu/code/materialPurchase/client/node_modules/react-dom"
+  },
+  "appJS": null,
+  "locale": "C",
+  "globalCSS": [
+    "/Users/shizu/code/materialPurchase/client/src/global.css"
+  ],
+  "globalJS": [],
+  "overridesCSS": [],
+  "bundler": "webpack",
+  "framework": "react",
+  "typescript": {
+    "tsVersion": "5.9.3",
+    "tslibVersion": "2.8.1"
+  },
+  "port": 8002,
+  "host": "0.0.0.0",
+  "ip": "10.10.0.32"
+}

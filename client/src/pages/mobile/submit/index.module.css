@@ -1,0 +1,377 @@
+/* 移动端采购需求填报页样式 */
+
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.loadingText {
+  color: white;
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 0 0 32px 0;
+}
+
+.emptyCard,
+.successCard {
+  margin: 80px 16px 0;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.continueBtn {
+  margin-top: 24px;
+  border-radius: 8px;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px 30px;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
+}
+
+.title {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+}
+
+/* Steps */
+.stepsWrapper {
+  margin: -10px 16px 0;
+  padding: 16px 12px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+}
+
+/* Step Content */
+.stepContent {
+  padding: 16px;
+}
+
+.hint {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+/* Form */
+.formCard {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.formItem {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: #ff4d4f;
+  margin-right: 4px;
+}
+
+.input {
+  --font-size: 15px;
+}
+
+.textarea {
+  --font-size: 14px;
+}
+
+/* Category Grid */
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.categoryCard {
+  background: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 16px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.categoryCard:active {
+  transform: scale(0.96);
+}
+
+.categoryCardActive {
+  border-color: #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.2);
+}
+
+.categoryIcon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.categoryName {
+  font-size: 12px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.checkMark {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Search */
+.searchBar {
+  margin-bottom: 12px;
+}
+
+/* Product List */
+.productList {
+  max-height: 50vh;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: white;
+}
+
+.productGroup {
+  margin-bottom: 0;
+}
+
+.groupTitle {
+  padding: 10px 14px;
+  background: #f7f8fa;
+  font-size: 13px;
+  font-weight: 600;
+  color: #667eea;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.productItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.productItem:active {
+  background: #f7f8fa;
+}
+
+.productItemActive {
+  background: rgba(102, 126, 234, 0.04);
+}
+
+.productCheckbox {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #d9d9d9;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: white;
+  transition: all 0.2s;
+}
+
+.checkboxChecked {
+  background: #667eea;
+  border-color: #667eea;
+}
+
+.productInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.productName {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.productMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.productPrice {
+  font-size: 13px;
+  color: #ff6b35;
+  font-weight: 500;
+}
+
+.selectedCount {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.selectedCount strong {
+  color: #667eea;
+  font-size: 18px;
+}
+
+/* Center Loading */
+.centerLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 40px 0;
+  color: #999;
+}
+
+/* Item Card (Step 4) */
+.itemList {
+  margin-bottom: 16px;
+}
+
+.itemCard {
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.itemName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  margin-right: 8px;
+}
+
+.itemPrice {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+/* Summary */
+.summary {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.summaryRow + .summaryRow {
+  border-top: 1px solid #f5f5f5;
+}
+
+.summaryRow span:last-child {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Buttons */
+.nextBtn {
+  border-radius: 8px;
+  margin-top: 16px;
+  height: 48px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.backBtn {
+  flex: 1;
+  border-radius: 8px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.nextBtnHalf {
+  flex: 2;
+  border-radius: 8px;
+  height: 48px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
