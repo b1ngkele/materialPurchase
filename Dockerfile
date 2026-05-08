@@ -10,6 +10,7 @@ RUN npm run build
 # 阶段 2：构建后端和最终运行环境
 FROM node:20-alpine
 WORKDIR /app/server
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN apk add --no-cache python3 make g++
 RUN npm config set registry https://registry.npmmirror.com
 COPY server/package*.json ./
