@@ -1,5 +1,5 @@
 # 阶段 1：构建前端
-FROM node:18-alpine AS frontend-builder
+FROM node:20-alpine AS frontend-builder
 WORKDIR /app/client
 RUN npm config set registry https://registry.npmmirror.com
 COPY client/package*.json ./
@@ -8,8 +8,9 @@ COPY client/ ./
 RUN npm run build
 
 # 阶段 2：构建后端和最终运行环境
-FROM node:18-alpine
+FROM node:20-alpine
 WORKDIR /app/server
+RUN apk add --no-cache python3 make g++
 RUN npm config set registry https://registry.npmmirror.com
 COPY server/package*.json ./
 RUN npm install --production
