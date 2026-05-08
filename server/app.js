@@ -31,7 +31,7 @@ const frontendPath = path.join(__dirname, 'public');
 app.use(express.static(frontendPath));
 
 // 兜底路由 (SPA 前端路由支持)
-app.get('*', (req, res, next) => {
+app.use((req, res, next) => {
   if (req.path.startsWith('/api')) {
     return res.status(404).json({ error: 'API route not found' });
   }
