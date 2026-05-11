@@ -448,9 +448,9 @@ const SubmitPage: React.FC = () => {
                           <Tag color="default" fill="outline">
                             {product.unit}
                           </Tag>
-                          <span className={styles.productPrice}>
+                          {/* <span className={styles.productPrice}>
                             ¥{product.price?.toFixed(2)}
-                          </span>
+                          </span> */}
                         </div>
                       </div>
                     </div>
