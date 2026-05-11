@@ -62,23 +62,21 @@ const SubmitPage: React.FC = () => {
   const [employeeName, setEmployeeName] = useState('');
   const [department, setDepartment] = useState('');
 
-  // Step 2: 品类选择
+  // Step 2（合并）: 品类筛选 + 物品选择
   const [categories, setCategories] = useState<Category[]>([]);
-  const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-
-  // Step 3: 物品选择
   const [products, setProducts] = useState<Product[]>([]);
-  const [productsLoading, setProductsLoading] = useState(false);
+  // null 表示"全部"，number 表示激活的品类 id
+  const [activeCategoryFilter, setActiveCategoryFilter] = useState<number | null>(null);
   const [searchKeyword, setSearchKeyword] = useState('');
   const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);
 
-  // Step 4: 数量和用途
+  // Step 3: 数量和用途
   const [selectedItems, setSelectedItems] = useState<SelectedItem[]>([]);
 
   // 提交结果
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  // 初始化
+  // 初始化：同时加载周期、品类、全量物品
   useEffect(() => {
     initData();
   }, []);
@@ -86,15 +84,19 @@ const SubmitPage: React.FC = () => {
   const initData = async () => {
     try {
       setLoading(true);
-      const [periodRes, categoryRes]: any = await Promise.all([
+      const [periodRes, categoryRes, productRes]: any = await Promise.all([
         getActivePeriod(),
         getCategories(),
+        getProducts({}), // 一次性加载全部物品
       ]);
       if (periodRes.code === 0) {
         setActivePeriod(periodRes.data);
       }
       if (categoryRes.code === 0) {
         setCategories(categoryRes.data);
+      }
+      if (productRes.code === 0) {
+        setProducts(productRes.data);
       }
     } catch (err) {
       console.error(err);
@@ -103,33 +105,24 @@ const SubmitPage: React.FC = () => {
     }
   };
 
-  // 加载物品数据
-  const loadProducts = async (categoryIds: number[]) => {
-    try {
-      setProductsLoading(true);
-      const res: any = await getProducts({
-        categoryIds: categoryIds.join(','),
-      });
-      if (res.code === 0) {
-        setProducts(res.data);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setProductsLoading(false);
-    }
-  };
-
-  // 根据搜索关键字过滤物品
+  // 根据品类 Chip + 搜索关键字双重过滤物品
   const filteredProducts = useMemo(() => {
-    if (!searchKeyword.trim()) return products;
-    const kw = searchKeyword.trim().toLowerCase();
-    return products.filter(
-      (p) =>
-        p.name.toLowerCase().includes(kw) ||
-        p.category_name.toLowerCase().includes(kw),
-    );
-  }, [products, searchKeyword]);
+    let list = products;
+    // 品类过滤
+    if (activeCategoryFilter !== null) {
+      list = list.filter((p) => p.category_id === activeCategoryFilter);
+    }
+    // 关键字过滤
+    if (searchKeyword.trim()) {
+      const kw = searchKeyword.trim().toLowerCase();
+      list = list.filter(
+        (p) =>
+          p.name.toLowerCase().includes(kw) ||
+          p.category_name.toLowerCase().includes(kw),
+      );
+    }
+    return list;
+  }, [products, searchKeyword, activeCategoryFilter]);
 
   // 按品类分组物品
   const groupedProducts = useMemo(() => {
@@ -156,14 +149,6 @@ const SubmitPage: React.FC = () => {
       }
     }
     if (currentStep === 1) {
-      if (selectedCategoryIds.length === 0) {
-        Toast.show({ content: '请至少选择一个品类', icon: 'fail' });
-        return;
-      }
-      // 加载物品
-      loadProducts(selectedCategoryIds);
-    }
-    if (currentStep === 2) {
       if (selectedProductIds.length === 0) {
         Toast.show({ content: '请至少选择一个物品', icon: 'fail' });
         return;
@@ -191,9 +176,13 @@ const SubmitPage: React.FC = () => {
     setCurrentStep((s) => s - 1);
   };
 
+  // Chip 点击：再次点击同一品类则还原为"全部"
+  const handleChipClick = (catId: number) => {
+    setActiveCategoryFilter((prev) => (prev === catId ? null : catId));
+  };
+
   // 提交
   const handleSubmit = async () => {
-    // 校验
     for (const item of selectedItems) {
       if (item.quantity < 1) {
         Toast.show({ content: `${item.productName} 数量不能小于1`, icon: 'fail' });
@@ -235,7 +224,7 @@ const SubmitPage: React.FC = () => {
     setCurrentStep(0);
     setEmployeeName('');
     setDepartment('');
-    setSelectedCategoryIds([]);
+    setActiveCategoryFilter(null);
     setSelectedProductIds([]);
     setSelectedItems([]);
     setSearchKeyword('');
@@ -299,11 +288,10 @@ const SubmitPage: React.FC = () => {
         <p className={styles.subtitle}>办公用品采购需求填报</p>
       </div>
 
-      {/* 步骤条 */}
+      {/* 步骤条：3步 */}
       <div className={styles.stepsWrapper}>
         <Steps current={currentStep}>
           <Step title="基本信息" />
-          <Step title="选择品类" />
           <Step title="选择物品" />
           <Step title="确认提交" />
         </Steps>
@@ -350,54 +338,29 @@ const SubmitPage: React.FC = () => {
         </div>
       )}
 
-      {/* Step 2: 选择品类 */}
+      {/* Step 2: 品类筛选 + 物品选择（合并步骤） */}
       {currentStep === 1 && (
         <div className={styles.stepContent}>
-          <p className={styles.hint}>请选择您需要采购的物品品类（可多选）</p>
-          <div className={styles.categoryGrid}>
+          {/* 品类 Chip 横向滚动筛选条 */}
+          <div className={styles.chipScrollContainer}>
+            <div
+              className={`${styles.chip} ${activeCategoryFilter === null ? styles.chipActive : ''}`}
+              onClick={() => setActiveCategoryFilter(null)}
+            >
+              全部
+            </div>
             {categories.map((cat) => (
               <div
                 key={cat.id}
-                className={`${styles.categoryCard} ${
-                  selectedCategoryIds.includes(cat.id) ? styles.categoryCardActive : ''
-                }`}
-                onClick={() => {
-                  setSelectedCategoryIds((prev) =>
-                    prev.includes(cat.id)
-                      ? prev.filter((id) => id !== cat.id)
-                      : [...prev, cat.id],
-                  );
-                }}
+                className={`${styles.chip} ${activeCategoryFilter === cat.id ? styles.chipActive : ''}`}
+                onClick={() => handleChipClick(cat.id)}
               >
-                <span className={styles.categoryIcon}>
-                  {getCategoryIcon(cat.name)}
-                </span>
-                <span className={styles.categoryName}>{cat.name}</span>
-                {selectedCategoryIds.includes(cat.id) && (
-                  <span className={styles.checkMark}>✓</span>
-                )}
+                {getCategoryIcon(cat.name)} {cat.name}
               </div>
             ))}
           </div>
-          <div className={styles.btnGroup}>
-            <Button size="large" onClick={goBack} className={styles.backBtn}>
-              上一步
-            </Button>
-            <Button
-              color="primary"
-              size="large"
-              onClick={goNext}
-              className={styles.nextBtnHalf}
-            >
-              下一步
-            </Button>
-          </div>
-        </div>
-      )}
 
-      {/* Step 3: 选择物品 */}
-      {currentStep === 2 && (
-        <div className={styles.stepContent}>
+          {/* 搜索栏 */}
           <SearchBar
             placeholder="搜索物品名称"
             value={searchKeyword}
@@ -405,86 +368,83 @@ const SubmitPage: React.FC = () => {
             className={styles.searchBar}
           />
 
-          {productsLoading ? (
-            <div className={styles.centerLoading}>
-              <DotLoading color="primary" />
-              <span>加载中...</span>
-            </div>
-          ) : (
-            <div className={styles.productList}>
-              {Object.entries(groupedProducts).map(([catName, prods]) => (
-                <div key={catName} className={styles.productGroup}>
-                  <div className={styles.groupTitle}>{catName}</div>
-                  {prods.map((product) => (
-                    <div
-                      key={product.id}
-                      className={`${styles.productItem} ${
-                        selectedProductIds.includes(product.id)
-                          ? styles.productItemActive
-                          : ''
-                      }`}
-                      onClick={() => {
-                        setSelectedProductIds((prev) =>
-                          prev.includes(product.id)
-                            ? prev.filter((id) => id !== product.id)
-                            : [...prev, product.id],
-                        );
-                      }}
-                    >
-                      <div className={styles.productCheckbox}>
-                        <div
-                          className={`${styles.checkbox} ${
-                            selectedProductIds.includes(product.id)
-                              ? styles.checkboxChecked
-                              : ''
-                          }`}
-                        >
-                          {selectedProductIds.includes(product.id) && '✓'}
-                        </div>
-                      </div>
-                      <div className={styles.productInfo}>
-                        <div className={styles.productName}>{product.name}</div>
-                        <div className={styles.productMeta}>
-                          <Tag color="default" fill="outline">
-                            {product.unit}
-                          </Tag>
-                          {/* <span className={styles.productPrice}>
-                            ¥{product.price?.toFixed(2)}
-                          </span> */}
-                        </div>
+          {/* 物品列表 */}
+          <div className={styles.productList}>
+            {Object.entries(groupedProducts).map(([catName, prods]) => (
+              <div key={catName} className={styles.productGroup}>
+                <div className={styles.groupTitle}>
+                  {getCategoryIcon(catName)} {catName}
+                </div>
+                {prods.map((product) => (
+                  <div
+                    key={product.id}
+                    className={`${styles.productItem} ${
+                      selectedProductIds.includes(product.id)
+                        ? styles.productItemActive
+                        : ''
+                    }`}
+                    onClick={() => {
+                      setSelectedProductIds((prev) =>
+                        prev.includes(product.id)
+                          ? prev.filter((id) => id !== product.id)
+                          : [...prev, product.id],
+                      );
+                    }}
+                  >
+                    <div className={styles.productCheckbox}>
+                      <div
+                        className={`${styles.checkbox} ${
+                          selectedProductIds.includes(product.id)
+                            ? styles.checkboxChecked
+                            : ''
+                        }`}
+                      >
+                        {selectedProductIds.includes(product.id) && '✓'}
                       </div>
                     </div>
-                  ))}
-                </div>
-              ))}
-              {Object.keys(groupedProducts).length === 0 && (
-                <Empty description="未找到相关物品" />
-              )}
-            </div>
-          )}
-
-          <div className={styles.selectedCount}>
-            已选择 <strong>{selectedProductIds.length}</strong> 个物品
+                    <div className={styles.productInfo}>
+                      <div className={styles.productName}>{product.name}</div>
+                      <div className={styles.productMeta}>
+                        <Tag color="default" fill="outline">
+                          {product.unit}
+                        </Tag>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+            {Object.keys(groupedProducts).length === 0 && (
+              <Empty description="未找到相关物品" />
+            )}
           </div>
 
-          <div className={styles.btnGroup}>
-            <Button size="large" onClick={goBack} className={styles.backBtn}>
-              上一步
-            </Button>
-            <Button
-              color="primary"
-              size="large"
-              onClick={goNext}
-              className={styles.nextBtnHalf}
-            >
-              下一步
-            </Button>
+          {/* 底部固定栏：已选数量 + 下一步 */}
+          <div className={styles.stickyBottom}>
+            <div className={styles.selectedInfo}>
+              已选
+              <strong className={styles.selectedNum}>{selectedProductIds.length}</strong>
+              件物品
+            </div>
+            <div className={styles.bottomBtnGroup}>
+              <Button size="large" onClick={goBack} className={styles.backBtnSmall}>
+                上一步
+              </Button>
+              <Button
+                color="primary"
+                size="large"
+                onClick={goNext}
+                className={styles.nextBtnSticky}
+              >
+                下一步
+              </Button>
+            </div>
           </div>
         </div>
       )}
 
-      {/* Step 4: 填写数量和用途 */}
-      {currentStep === 3 && (
+      {/* Step 3: 填写数量和用途 */}
+      {currentStep === 2 && (
         <div className={styles.stepContent}>
           <p className={styles.hint}>请为每个物品填写需求数量和用途</p>
           <div className={styles.itemList}>

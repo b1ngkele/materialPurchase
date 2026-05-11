@@ -96,6 +96,8 @@
       "time": {
         "hooks": {
           "modifyRoutes": [
+            0,
+            0,
             0
           ]
         },
@@ -115,6 +117,8 @@
           "onDevCompileDone": [
             8,
             2,
+            4,
+            6,
             4
           ]
         },
@@ -135,7 +139,9 @@
             8
           ],
           "onGenerateFiles": [
-            2
+            2,
+            8,
+            5
           ]
         },
         "register": 17
@@ -152,6 +158,8 @@
       "time": {
         "hooks": {
           "addEntryCode": [
+            0,
+            0,
             0
           ]
         },
@@ -177,6 +185,7 @@
           "onPrepareBuildSuccess": [
             0,
             0,
+            0,
             0
           ],
           "onCheckCode": [
@@ -189,6 +198,7 @@
             0,
             0,
             1,
+            0,
             0,
             0,
             0,
@@ -1216,9 +1226,13 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
+            1,
+            1,
             1
           ],
           "addRuntimePlugin": [
+            0,
+            0,
             0
           ]
         },
@@ -1293,9 +1307,15 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
+            0,
+            0,
             0
           ],
           "addEntryImports": [
+            0,
+            0,
+            0,
+            0,
             0,
             0
           ]
@@ -1330,10 +1350,16 @@
             1
           ],
           "onGenerateFiles": [
-            61
+            61,
+            61,
+            13
           ],
           "addPolyfillImports": [
             0,
+            0,
+            0,
+            0,
+            1,
             0
           ]
         },
@@ -1350,6 +1376,10 @@
       "time": {
         "hooks": {
           "addPolyfillImports": [
+            0,
+            0,
+            0,
+            0,
             0,
             0
           ]
@@ -1368,7 +1398,9 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
-            115
+            115,
+            0,
+            0
           ]
         },
         "register": 4
@@ -1411,6 +1443,8 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
+            0,
+            0,
             0
           ],
           "addBeforeMiddlewares": [
@@ -1432,7 +1466,11 @@
         "hooks": {
           "onGenerateFiles": [
             9,
-            7
+            7,
+            50,
+            3,
+            10,
+            2
           ]
         },
         "register": 5
@@ -1487,7 +1525,9 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
-            288
+            288,
+            41,
+            11
           ]
         },
         "register": 2
@@ -1572,7 +1612,9 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
-            2
+            2,
+            1,
+            1
           ]
         },
         "register": 1
@@ -2215,7 +2257,7 @@
       "file": "@/pages/mobile/submit/index.tsx",
       "id": "1",
       "absPath": "/mobile/submit",
-      "__content": "import React, { useState, useEffect, useMemo } from 'react';\nimport {\n  Button,\n  NavBar,\n  Steps,\n  Input,\n  TextArea,\n  CheckList,\n  SearchBar,\n  Stepper,\n  Result,\n  SpinLoading,\n  Toast,\n  Card,\n  Tag,\n  Empty,\n  DotLoading,\n} from 'antd-mobile';\nimport {\n  getActivePeriod,\n  getCategories,\n  getProducts,\n  submitPurchaseRequest,\n} from '@/services/api';\nimport styles from './index.module.css';\n\nconst { Step } = Steps;\n\ninterface Category {\n  id: number;\n  name: string;\n}\n\ninterface Product {\n  id: number;\n  category_id: number;\n  name: string;\n  unit: string;\n  spec: string;\n  price: number;\n  category_name: string;\n}\n\ninterface SelectedItem {\n  productId: number;\n  productName: string;\n  unit: string;\n  price: number;\n  categoryName: string;\n  quantity: number;\n  purpose: string;\n}\n\nconst SubmitPage: React.FC = () => {\n  // 状态管理\n  const [loading, setLoading] = useState(true);\n  const [submitting, setSubmitting] = useState(false);\n  const [currentStep, setCurrentStep] = useState(0);\n  const [activePeriod, setActivePeriod] = useState<any>(null);\n\n  // Step 1: 基本信息\n  const [employeeName, setEmployeeName] = useState('');\n  const [department, setDepartment] = useState('');\n\n  // Step 2: 品类选择\n  const [categories, setCategories] = useState<Category[]>([]);\n  const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);\n\n  // Step 3: 物品选择\n  const [products, setProducts] = useState<Product[]>([]);\n  const [productsLoading, setProductsLoading] = useState(false);\n  const [searchKeyword, setSearchKeyword] = useState('');\n  const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);\n\n  // Step 4: 数量和用途\n  const [selectedItems, setSelectedItems] = useState<SelectedItem[]>([]);\n\n  // 提交结果\n  const [submitSuccess, setSubmitSuccess] = useState(false);\n\n  // 初始化\n  useEffect(() => {\n    initData();\n  }, []);\n\n  const initData = async () => {\n    try {\n      setLoading(true);\n      const [periodRes, categoryRes]: any = await Promise.all([\n        getActivePeriod(),\n        getCategories(),\n      ]);\n      if (periodRes.code === 0) {\n        setActivePeriod(periodRes.data);\n      }\n      if (categoryRes.code === 0) {\n        setCategories(categoryRes.data);\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  // 加载物品数据\n  const loadProducts = async (categoryIds: number[]) => {\n    try {\n      setProductsLoading(true);\n      const res: any = await getProducts({\n        categoryIds: categoryIds.join(','),\n      });\n      if (res.code === 0) {\n        setProducts(res.data);\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setProductsLoading(false);\n    }\n  };\n\n  // 根据搜索关键字过滤物品\n  const filteredProducts = useMemo(() => {\n    if (!searchKeyword.trim()) return products;\n    const kw = searchKeyword.trim().toLowerCase();\n    return products.filter(\n      (p) =>\n        p.name.toLowerCase().includes(kw) ||\n        p.category_name.toLowerCase().includes(kw),\n    );\n  }, [products, searchKeyword]);\n\n  // 按品类分组物品\n  const groupedProducts = useMemo(() => {\n    const groups: Record<string, Product[]> = {};\n    filteredProducts.forEach((p) => {\n      if (!groups[p.category_name]) {\n        groups[p.category_name] = [];\n      }\n      groups[p.category_name].push(p);\n    });\n    return groups;\n  }, [filteredProducts]);\n\n  // Step 导航\n  const goNext = () => {\n    if (currentStep === 0) {\n      if (!employeeName.trim()) {\n        Toast.show({ content: '请输入姓名', icon: 'fail' });\n        return;\n      }\n      if (!department.trim()) {\n        Toast.show({ content: '请输入部门', icon: 'fail' });\n        return;\n      }\n    }\n    if (currentStep === 1) {\n      if (selectedCategoryIds.length === 0) {\n        Toast.show({ content: '请至少选择一个品类', icon: 'fail' });\n        return;\n      }\n      // 加载物品\n      loadProducts(selectedCategoryIds);\n    }\n    if (currentStep === 2) {\n      if (selectedProductIds.length === 0) {\n        Toast.show({ content: '请至少选择一个物品', icon: 'fail' });\n        return;\n      }\n      // 初始化已选物品的数量和用途\n      const items: SelectedItem[] = selectedProductIds.map((pid) => {\n        const product = products.find((p) => p.id === pid)!;\n        const existing = selectedItems.find((si) => si.productId === pid);\n        return {\n          productId: pid,\n          productName: product.name,\n          unit: product.unit,\n          price: product.price,\n          categoryName: product.category_name,\n          quantity: existing?.quantity || 1,\n          purpose: existing?.purpose || '',\n        };\n      });\n      setSelectedItems(items);\n    }\n    setCurrentStep((s) => s + 1);\n  };\n\n  const goBack = () => {\n    setCurrentStep((s) => s - 1);\n  };\n\n  // 提交\n  const handleSubmit = async () => {\n    // 校验\n    for (const item of selectedItems) {\n      if (item.quantity < 1) {\n        Toast.show({ content: `${item.productName} 数量不能小于1`, icon: 'fail' });\n        return;\n      }\n      if (!item.purpose.trim()) {\n        Toast.show({ content: `请填写 ${item.productName} 的用途`, icon: 'fail' });\n        return;\n      }\n    }\n\n    try {\n      setSubmitting(true);\n      const res: any = await submitPurchaseRequest({\n        periodId: activePeriod.id,\n        employeeName: employeeName.trim(),\n        department: department.trim(),\n        items: selectedItems.map((item) => ({\n          productId: item.productId,\n          quantity: item.quantity,\n          purpose: item.purpose.trim(),\n        })),\n      });\n\n      if (res.code === 0) {\n        setSubmitSuccess(true);\n      } else {\n        Toast.show({ content: res.message || '提交失败', icon: 'fail' });\n      }\n    } catch (err: any) {\n      Toast.show({ content: err.message || '提交失败，请稍后重试', icon: 'fail' });\n    } finally {\n      setSubmitting(false);\n    }\n  };\n\n  // 重置，继续提交\n  const handleReset = () => {\n    setCurrentStep(0);\n    setEmployeeName('');\n    setDepartment('');\n    setSelectedCategoryIds([]);\n    setSelectedProductIds([]);\n    setSelectedItems([]);\n    setSearchKeyword('');\n    setSubmitSuccess(false);\n  };\n\n  // Loading 状态\n  if (loading) {\n    return (\n      <div className={styles.loadingContainer}>\n        <SpinLoading color=\"white\" style={{ '--size': '48px' }} />\n        <p className={styles.loadingText}>加载中...</p>\n      </div>\n    );\n  }\n\n  // 无活跃周期\n  if (!activePeriod) {\n    return (\n      <div className={styles.container}>\n        <div className={styles.emptyCard}>\n          <Result\n            status=\"info\"\n            title=\"暂无采购活动\"\n            description=\"当前没有进行中的采购活动，请等待行政部门通知\"\n          />\n        </div>\n      </div>\n    );\n  }\n\n  // 提交成功\n  if (submitSuccess) {\n    return (\n      <div className={styles.container}>\n        <div className={styles.successCard}>\n          <Result\n            status=\"success\"\n            title=\"提交成功\"\n            description={`您的${activePeriod.title}采购需求已提交成功`}\n          />\n          <Button\n            block\n            color=\"primary\"\n            size=\"large\"\n            onClick={handleReset}\n            className={styles.continueBtn}\n          >\n            继续提交\n          </Button>\n        </div>\n      </div>\n    );\n  }\n\n  return (\n    <div className={styles.container}>\n      {/* 顶部标题 */}\n      <div className={styles.header}>\n        <h1 className={styles.title}>{activePeriod.title}</h1>\n        <p className={styles.subtitle}>办公用品采购需求填报</p>\n      </div>\n\n      {/* 步骤条 */}\n      <div className={styles.stepsWrapper}>\n        <Steps current={currentStep}>\n          <Step title=\"基本信息\" />\n          <Step title=\"选择品类\" />\n          <Step title=\"选择物品\" />\n          <Step title=\"确认提交\" />\n        </Steps>\n      </div>\n\n      {/* Step 1: 基本信息 */}\n      {currentStep === 0 && (\n        <div className={styles.stepContent}>\n          <Card className={styles.formCard}>\n            <div className={styles.formItem}>\n              <label className={styles.label}>\n                <span className={styles.required}>*</span> 姓名\n              </label>\n              <Input\n                placeholder=\"请输入您的姓名\"\n                value={employeeName}\n                onChange={setEmployeeName}\n                clearable\n                className={styles.input}\n              />\n            </div>\n            <div className={styles.formItem}>\n              <label className={styles.label}>\n                <span className={styles.required}>*</span> 部门\n              </label>\n              <Input\n                placeholder=\"请输入您的部门\"\n                value={department}\n                onChange={setDepartment}\n                clearable\n                className={styles.input}\n              />\n            </div>\n          </Card>\n          <Button\n            block\n            color=\"primary\"\n            size=\"large\"\n            onClick={goNext}\n            className={styles.nextBtn}\n          >\n            下一步\n          </Button>\n        </div>\n      )}\n\n      {/* Step 2: 选择品类 */}\n      {currentStep === 1 && (\n        <div className={styles.stepContent}>\n          <p className={styles.hint}>请选择您需要采购的物品品类（可多选）</p>\n          <div className={styles.categoryGrid}>\n            {categories.map((cat) => (\n              <div\n                key={cat.id}\n                className={`${styles.categoryCard} ${\n                  selectedCategoryIds.includes(cat.id) ? styles.categoryCardActive : ''\n                }`}\n                onClick={() => {\n                  setSelectedCategoryIds((prev) =>\n                    prev.includes(cat.id)\n                      ? prev.filter((id) => id !== cat.id)\n                      : [...prev, cat.id],\n                  );\n                }}\n              >\n                <span className={styles.categoryIcon}>\n                  {getCategoryIcon(cat.name)}\n                </span>\n                <span className={styles.categoryName}>{cat.name}</span>\n                {selectedCategoryIds.includes(cat.id) && (\n                  <span className={styles.checkMark}>✓</span>\n                )}\n              </div>\n            ))}\n          </div>\n          <div className={styles.btnGroup}>\n            <Button size=\"large\" onClick={goBack} className={styles.backBtn}>\n              上一步\n            </Button>\n            <Button\n              color=\"primary\"\n              size=\"large\"\n              onClick={goNext}\n              className={styles.nextBtnHalf}\n            >\n              下一步\n            </Button>\n          </div>\n        </div>\n      )}\n\n      {/* Step 3: 选择物品 */}\n      {currentStep === 2 && (\n        <div className={styles.stepContent}>\n          <SearchBar\n            placeholder=\"搜索物品名称\"\n            value={searchKeyword}\n            onChange={setSearchKeyword}\n            className={styles.searchBar}\n          />\n\n          {productsLoading ? (\n            <div className={styles.centerLoading}>\n              <DotLoading color=\"primary\" />\n              <span>加载中...</span>\n            </div>\n          ) : (\n            <div className={styles.productList}>\n              {Object.entries(groupedProducts).map(([catName, prods]) => (\n                <div key={catName} className={styles.productGroup}>\n                  <div className={styles.groupTitle}>{catName}</div>\n                  {prods.map((product) => (\n                    <div\n                      key={product.id}\n                      className={`${styles.productItem} ${\n                        selectedProductIds.includes(product.id)\n                          ? styles.productItemActive\n                          : ''\n                      }`}\n                      onClick={() => {\n                        setSelectedProductIds((prev) =>\n                          prev.includes(product.id)\n                            ? prev.filter((id) => id !== product.id)\n                            : [...prev, product.id],\n                        );\n                      }}\n                    >\n                      <div className={styles.productCheckbox}>\n                        <div\n                          className={`${styles.checkbox} ${\n                            selectedProductIds.includes(product.id)\n                              ? styles.checkboxChecked\n                              : ''\n                          }`}\n                        >\n                          {selectedProductIds.includes(product.id) && '✓'}\n                        </div>\n                      </div>\n                      <div className={styles.productInfo}>\n                        <div className={styles.productName}>{product.name}</div>\n                        <div className={styles.productMeta}>\n                          <Tag color=\"default\" fill=\"outline\">\n                            {product.unit}\n                          </Tag>\n                          <span className={styles.productPrice}>\n                            ¥{product.price?.toFixed(2)}\n                          </span>\n                        </div>\n                      </div>\n                    </div>\n                  ))}\n                </div>\n              ))}\n              {Object.keys(groupedProducts).length === 0 && (\n                <Empty description=\"未找到相关物品\" />\n              )}\n            </div>\n          )}\n\n          <div className={styles.selectedCount}>\n            已选择 <strong>{selectedProductIds.length}</strong> 个物品\n          </div>\n\n          <div className={styles.btnGroup}>\n            <Button size=\"large\" onClick={goBack} className={styles.backBtn}>\n              上一步\n            </Button>\n            <Button\n              color=\"primary\"\n              size=\"large\"\n              onClick={goNext}\n              className={styles.nextBtnHalf}\n            >\n              下一步\n            </Button>\n          </div>\n        </div>\n      )}\n\n      {/* Step 4: 填写数量和用途 */}\n      {currentStep === 3 && (\n        <div className={styles.stepContent}>\n          <p className={styles.hint}>请为每个物品填写需求数量和用途</p>\n          <div className={styles.itemList}>\n            {selectedItems.map((item, index) => (\n              <Card key={item.productId} className={styles.itemCard}>\n                <div className={styles.itemHeader}>\n                  <span className={styles.itemName}>{item.productName}</span>\n                  <Tag color=\"primary\" fill=\"outline\">\n                    {item.categoryName}\n                  </Tag>\n                </div>\n                <div className={styles.itemPrice}>\n                  单价: ¥{item.price?.toFixed(2)} / {item.unit}\n                </div>\n                <div className={styles.formItem}>\n                  <label className={styles.label}>\n                    <span className={styles.required}>*</span> 数量\n                  </label>\n                  <Stepper\n                    min={1}\n                    max={9999}\n                    value={item.quantity}\n                    onChange={(val) => {\n                      const newItems = [...selectedItems];\n                      newItems[index] = { ...item, quantity: val };\n                      setSelectedItems(newItems);\n                    }}\n                  />\n                </div>\n                <div className={styles.formItem}>\n                  <label className={styles.label}>\n                    <span className={styles.required}>*</span> 用途\n                  </label>\n                  <TextArea\n                    placeholder=\"请输入用途说明\"\n                    value={item.purpose}\n                    onChange={(val) => {\n                      const newItems = [...selectedItems];\n                      newItems[index] = { ...item, purpose: val };\n                      setSelectedItems(newItems);\n                    }}\n                    rows={2}\n                    className={styles.textarea}\n                  />\n                </div>\n              </Card>\n            ))}\n          </div>\n\n          <div className={styles.summary}>\n            <div className={styles.summaryRow}>\n              <span>提交人</span>\n              <span>{employeeName} - {department}</span>\n            </div>\n            <div className={styles.summaryRow}>\n              <span>物品总数</span>\n              <span>{selectedItems.reduce((sum, i) => sum + i.quantity, 0)} 件</span>\n            </div>\n          </div>\n\n          <div className={styles.btnGroup}>\n            <Button size=\"large\" onClick={goBack} className={styles.backBtn}>\n              上一步\n            </Button>\n            <Button\n              color=\"primary\"\n              size=\"large\"\n              loading={submitting}\n              onClick={handleSubmit}\n              className={styles.nextBtnHalf}\n            >\n              提交\n            </Button>\n          </div>\n        </div>\n      )}\n    </div>\n  );\n};\n\n// 品类图标映射\nfunction getCategoryIcon(name: string): string {\n  const iconMap: Record<string, string> = {\n    '桌面办公用品': '✂️',\n    '办公耗材': '🖨️',\n    '办公用笔': '🖊️',\n    '本、簿、贴类': '📒',\n    '文件整理用具': '📁',\n    '日用劳保': '🧹',\n    '办公设备': '🖥️',\n    '电子数码': '🔋',\n    '文化用品': '🏆',\n  };\n  return iconMap[name] || '📦';\n}\n\nexport default SubmitPage;\n",
+      "__content": "import React, { useState, useEffect, useMemo } from 'react';\nimport {\n  Button,\n  NavBar,\n  Steps,\n  Input,\n  TextArea,\n  CheckList,\n  SearchBar,\n  Stepper,\n  Result,\n  SpinLoading,\n  Toast,\n  Card,\n  Tag,\n  Empty,\n  DotLoading,\n} from 'antd-mobile';\nimport {\n  getActivePeriod,\n  getCategories,\n  getProducts,\n  submitPurchaseRequest,\n} from '@/services/api';\nimport styles from './index.module.css';\n\nconst { Step } = Steps;\n\ninterface Category {\n  id: number;\n  name: string;\n}\n\ninterface Product {\n  id: number;\n  category_id: number;\n  name: string;\n  unit: string;\n  spec: string;\n  price: number;\n  category_name: string;\n}\n\ninterface SelectedItem {\n  productId: number;\n  productName: string;\n  unit: string;\n  price: number;\n  categoryName: string;\n  quantity: number;\n  purpose: string;\n}\n\nconst SubmitPage: React.FC = () => {\n  // 状态管理\n  const [loading, setLoading] = useState(true);\n  const [submitting, setSubmitting] = useState(false);\n  const [currentStep, setCurrentStep] = useState(0);\n  const [activePeriod, setActivePeriod] = useState<any>(null);\n\n  // Step 1: 基本信息\n  const [employeeName, setEmployeeName] = useState('');\n  const [department, setDepartment] = useState('');\n\n  // Step 2（合并）: 品类筛选 + 物品选择\n  const [categories, setCategories] = useState<Category[]>([]);\n  const [products, setProducts] = useState<Product[]>([]);\n  // null 表示\"全部\"，number 表示激活的品类 id\n  const [activeCategoryFilter, setActiveCategoryFilter] = useState<number | null>(null);\n  const [searchKeyword, setSearchKeyword] = useState('');\n  const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);\n\n  // Step 3: 数量和用途\n  const [selectedItems, setSelectedItems] = useState<SelectedItem[]>([]);\n\n  // 提交结果\n  const [submitSuccess, setSubmitSuccess] = useState(false);\n\n  // 初始化：同时加载周期、品类、全量物品\n  useEffect(() => {\n    initData();\n  }, []);\n\n  const initData = async () => {\n    try {\n      setLoading(true);\n      const [periodRes, categoryRes, productRes]: any = await Promise.all([\n        getActivePeriod(),\n        getCategories(),\n        getProducts({}), // 一次性加载全部物品\n      ]);\n      if (periodRes.code === 0) {\n        setActivePeriod(periodRes.data);\n      }\n      if (categoryRes.code === 0) {\n        setCategories(categoryRes.data);\n      }\n      if (productRes.code === 0) {\n        setProducts(productRes.data);\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  // 根据品类 Chip + 搜索关键字双重过滤物品\n  const filteredProducts = useMemo(() => {\n    let list = products;\n    // 品类过滤\n    if (activeCategoryFilter !== null) {\n      list = list.filter((p) => p.category_id === activeCategoryFilter);\n    }\n    // 关键字过滤\n    if (searchKeyword.trim()) {\n      const kw = searchKeyword.trim().toLowerCase();\n      list = list.filter(\n        (p) =>\n          p.name.toLowerCase().includes(kw) ||\n          p.category_name.toLowerCase().includes(kw),\n      );\n    }\n    return list;\n  }, [products, searchKeyword, activeCategoryFilter]);\n\n  // 按品类分组物品\n  const groupedProducts = useMemo(() => {\n    const groups: Record<string, Product[]> = {};\n    filteredProducts.forEach((p) => {\n      if (!groups[p.category_name]) {\n        groups[p.category_name] = [];\n      }\n      groups[p.category_name].push(p);\n    });\n    return groups;\n  }, [filteredProducts]);\n\n  // Step 导航\n  const goNext = () => {\n    if (currentStep === 0) {\n      if (!employeeName.trim()) {\n        Toast.show({ content: '请输入姓名', icon: 'fail' });\n        return;\n      }\n      if (!department.trim()) {\n        Toast.show({ content: '请输入部门', icon: 'fail' });\n        return;\n      }\n    }\n    if (currentStep === 1) {\n      if (selectedProductIds.length === 0) {\n        Toast.show({ content: '请至少选择一个物品', icon: 'fail' });\n        return;\n      }\n      // 初始化已选物品的数量和用途\n      const items: SelectedItem[] = selectedProductIds.map((pid) => {\n        const product = products.find((p) => p.id === pid)!;\n        const existing = selectedItems.find((si) => si.productId === pid);\n        return {\n          productId: pid,\n          productName: product.name,\n          unit: product.unit,\n          price: product.price,\n          categoryName: product.category_name,\n          quantity: existing?.quantity || 1,\n          purpose: existing?.purpose || '',\n        };\n      });\n      setSelectedItems(items);\n    }\n    setCurrentStep((s) => s + 1);\n  };\n\n  const goBack = () => {\n    setCurrentStep((s) => s - 1);\n  };\n\n  // Chip 点击：再次点击同一品类则还原为\"全部\"\n  const handleChipClick = (catId: number) => {\n    setActiveCategoryFilter((prev) => (prev === catId ? null : catId));\n  };\n\n  // 提交\n  const handleSubmit = async () => {\n    for (const item of selectedItems) {\n      if (item.quantity < 1) {\n        Toast.show({ content: `${item.productName} 数量不能小于1`, icon: 'fail' });\n        return;\n      }\n      if (!item.purpose.trim()) {\n        Toast.show({ content: `请填写 ${item.productName} 的用途`, icon: 'fail' });\n        return;\n      }\n    }\n\n    try {\n      setSubmitting(true);\n      const res: any = await submitPurchaseRequest({\n        periodId: activePeriod.id,\n        employeeName: employeeName.trim(),\n        department: department.trim(),\n        items: selectedItems.map((item) => ({\n          productId: item.productId,\n          quantity: item.quantity,\n          purpose: item.purpose.trim(),\n        })),\n      });\n\n      if (res.code === 0) {\n        setSubmitSuccess(true);\n      } else {\n        Toast.show({ content: res.message || '提交失败', icon: 'fail' });\n      }\n    } catch (err: any) {\n      Toast.show({ content: err.message || '提交失败，请稍后重试', icon: 'fail' });\n    } finally {\n      setSubmitting(false);\n    }\n  };\n\n  // 重置，继续提交\n  const handleReset = () => {\n    setCurrentStep(0);\n    setEmployeeName('');\n    setDepartment('');\n    setActiveCategoryFilter(null);\n    setSelectedProductIds([]);\n    setSelectedItems([]);\n    setSearchKeyword('');\n    setSubmitSuccess(false);\n  };\n\n  // Loading 状态\n  if (loading) {\n    return (\n      <div className={styles.loadingContainer}>\n        <SpinLoading color=\"white\" style={{ '--size': '48px' }} />\n        <p className={styles.loadingText}>加载中...</p>\n      </div>\n    );\n  }\n\n  // 无活跃周期\n  if (!activePeriod) {\n    return (\n      <div className={styles.container}>\n        <div className={styles.emptyCard}>\n          <Result\n            status=\"info\"\n            title=\"暂无采购活动\"\n            description=\"当前没有进行中的采购活动，请等待行政部门通知\"\n          />\n        </div>\n      </div>\n    );\n  }\n\n  // 提交成功\n  if (submitSuccess) {\n    return (\n      <div className={styles.container}>\n        <div className={styles.successCard}>\n          <Result\n            status=\"success\"\n            title=\"提交成功\"\n            description={`您的${activePeriod.title}采购需求已提交成功`}\n          />\n          <Button\n            block\n            color=\"primary\"\n            size=\"large\"\n            onClick={handleReset}\n            className={styles.continueBtn}\n          >\n            继续提交\n          </Button>\n        </div>\n      </div>\n    );\n  }\n\n  return (\n    <div className={styles.container}>\n      {/* 顶部标题 */}\n      <div className={styles.header}>\n        <h1 className={styles.title}>{activePeriod.title}</h1>\n        <p className={styles.subtitle}>办公用品采购需求填报</p>\n      </div>\n\n      {/* 步骤条：3步 */}\n      <div className={styles.stepsWrapper}>\n        <Steps current={currentStep}>\n          <Step title=\"基本信息\" />\n          <Step title=\"选择物品\" />\n          <Step title=\"确认提交\" />\n        </Steps>\n      </div>\n\n      {/* Step 1: 基本信息 */}\n      {currentStep === 0 && (\n        <div className={styles.stepContent}>\n          <Card className={styles.formCard}>\n            <div className={styles.formItem}>\n              <label className={styles.label}>\n                <span className={styles.required}>*</span> 姓名\n              </label>\n              <Input\n                placeholder=\"请输入您的姓名\"\n                value={employeeName}\n                onChange={setEmployeeName}\n                clearable\n                className={styles.input}\n              />\n            </div>\n            <div className={styles.formItem}>\n              <label className={styles.label}>\n                <span className={styles.required}>*</span> 部门\n              </label>\n              <Input\n                placeholder=\"请输入您的部门\"\n                value={department}\n                onChange={setDepartment}\n                clearable\n                className={styles.input}\n              />\n            </div>\n          </Card>\n          <Button\n            block\n            color=\"primary\"\n            size=\"large\"\n            onClick={goNext}\n            className={styles.nextBtn}\n          >\n            下一步\n          </Button>\n        </div>\n      )}\n\n      {/* Step 2: 品类筛选 + 物品选择（合并步骤） */}\n      {currentStep === 1 && (\n        <div className={styles.stepContent}>\n          {/* 品类 Chip 横向滚动筛选条 */}\n          <div className={styles.chipScrollContainer}>\n            <div\n              className={`${styles.chip} ${activeCategoryFilter === null ? styles.chipActive : ''}`}\n              onClick={() => setActiveCategoryFilter(null)}\n            >\n              全部\n            </div>\n            {categories.map((cat) => (\n              <div\n                key={cat.id}\n                className={`${styles.chip} ${activeCategoryFilter === cat.id ? styles.chipActive : ''}`}\n                onClick={() => handleChipClick(cat.id)}\n              >\n                {getCategoryIcon(cat.name)} {cat.name}\n              </div>\n            ))}\n          </div>\n\n          {/* 搜索栏 */}\n          <SearchBar\n            placeholder=\"搜索物品名称\"\n            value={searchKeyword}\n            onChange={setSearchKeyword}\n            className={styles.searchBar}\n          />\n\n          {/* 物品列表 */}\n          <div className={styles.productList}>\n            {Object.entries(groupedProducts).map(([catName, prods]) => (\n              <div key={catName} className={styles.productGroup}>\n                <div className={styles.groupTitle}>\n                  {getCategoryIcon(catName)} {catName}\n                </div>\n                {prods.map((product) => (\n                  <div\n                    key={product.id}\n                    className={`${styles.productItem} ${\n                      selectedProductIds.includes(product.id)\n                        ? styles.productItemActive\n                        : ''\n                    }`}\n                    onClick={() => {\n                      setSelectedProductIds((prev) =>\n                        prev.includes(product.id)\n                          ? prev.filter((id) => id !== product.id)\n                          : [...prev, product.id],\n                      );\n                    }}\n                  >\n                    <div className={styles.productCheckbox}>\n                      <div\n                        className={`${styles.checkbox} ${\n                          selectedProductIds.includes(product.id)\n                            ? styles.checkboxChecked\n                            : ''\n                        }`}\n                      >\n                        {selectedProductIds.includes(product.id) && '✓'}\n                      </div>\n                    </div>\n                    <div className={styles.productInfo}>\n                      <div className={styles.productName}>{product.name}</div>\n                      <div className={styles.productMeta}>\n                        <Tag color=\"default\" fill=\"outline\">\n                          {product.unit}\n                        </Tag>\n                      </div>\n                    </div>\n                  </div>\n                ))}\n              </div>\n            ))}\n            {Object.keys(groupedProducts).length === 0 && (\n              <Empty description=\"未找到相关物品\" />\n            )}\n          </div>\n\n          {/* 底部固定栏：已选数量 + 下一步 */}\n          <div className={styles.stickyBottom}>\n            <div className={styles.selectedInfo}>\n              已选\n              <strong className={styles.selectedNum}>{selectedProductIds.length}</strong>\n              件物品\n            </div>\n            <div className={styles.bottomBtnGroup}>\n              <Button size=\"large\" onClick={goBack} className={styles.backBtnSmall}>\n                上一步\n              </Button>\n              <Button\n                color=\"primary\"\n                size=\"large\"\n                onClick={goNext}\n                className={styles.nextBtnSticky}\n              >\n                下一步\n              </Button>\n            </div>\n          </div>\n        </div>\n      )}\n\n      {/* Step 3: 填写数量和用途 */}\n      {currentStep === 2 && (\n        <div className={styles.stepContent}>\n          <p className={styles.hint}>请为每个物品填写需求数量和用途</p>\n          <div className={styles.itemList}>\n            {selectedItems.map((item, index) => (\n              <Card key={item.productId} className={styles.itemCard}>\n                <div className={styles.itemHeader}>\n                  <span className={styles.itemName}>{item.productName}</span>\n                  <Tag color=\"primary\" fill=\"outline\">\n                    {item.categoryName}\n                  </Tag>\n                </div>\n                <div className={styles.itemPrice}>\n                  单价: ¥{item.price?.toFixed(2)} / {item.unit}\n                </div>\n                <div className={styles.formItem}>\n                  <label className={styles.label}>\n                    <span className={styles.required}>*</span> 数量\n                  </label>\n                  <Stepper\n                    min={1}\n                    max={9999}\n                    value={item.quantity}\n                    onChange={(val) => {\n                      const newItems = [...selectedItems];\n                      newItems[index] = { ...item, quantity: val };\n                      setSelectedItems(newItems);\n                    }}\n                  />\n                </div>\n                <div className={styles.formItem}>\n                  <label className={styles.label}>\n                    <span className={styles.required}>*</span> 用途\n                  </label>\n                  <TextArea\n                    placeholder=\"请输入用途说明\"\n                    value={item.purpose}\n                    onChange={(val) => {\n                      const newItems = [...selectedItems];\n                      newItems[index] = { ...item, purpose: val };\n                      setSelectedItems(newItems);\n                    }}\n                    rows={2}\n                    className={styles.textarea}\n                  />\n                </div>\n              </Card>\n            ))}\n          </div>\n\n          <div className={styles.summary}>\n            <div className={styles.summaryRow}>\n              <span>提交人</span>\n              <span>{employeeName} - {department}</span>\n            </div>\n            <div className={styles.summaryRow}>\n              <span>物品总数</span>\n              <span>{selectedItems.reduce((sum, i) => sum + i.quantity, 0)} 件</span>\n            </div>\n          </div>\n\n          <div className={styles.btnGroup}>\n            <Button size=\"large\" onClick={goBack} className={styles.backBtn}>\n              上一步\n            </Button>\n            <Button\n              color=\"primary\"\n              size=\"large\"\n              loading={submitting}\n              onClick={handleSubmit}\n              className={styles.nextBtnHalf}\n            >\n              提交\n            </Button>\n          </div>\n        </div>\n      )}\n    </div>\n  );\n};\n\n// 品类图标映射\nfunction getCategoryIcon(name: string): string {\n  const iconMap: Record<string, string> = {\n    '桌面办公用品': '✂️',\n    '办公耗材': '🖨️',\n    '办公用笔': '🖊️',\n    '本、簿、贴类': '📒',\n    '文件整理用具': '📁',\n    '日用劳保': '🧹',\n    '办公设备': '🖥️',\n    '电子数码': '🔋',\n    '文化用品': '🏆',\n  };\n  return iconMap[name] || '📦';\n}\n\nexport default SubmitPage;\n",
       "__isJSFile": true,
       "__absFile": "/Users/shizu/code/materialPurchase/client/src/pages/mobile/submit/index.tsx"
     },
@@ -3454,7 +3496,7 @@
             "format": "esm"
           },
           "src/pages/mobile/submit/index.tsx": {
-            "bytes": 17802,
+            "bytes": 16764,
             "imports": [
               {
                 "path": "react",
@@ -5253,7 +5295,7 @@
                 "bytesInOutput": 2195
               },
               "src/pages/mobile/submit/index.tsx": {
-                "bytesInOutput": 20431
+                "bytesInOutput": 19194
               },
               "src/.umi/core/defineApp.ts": {
                 "bytesInOutput": 90
@@ -5310,7 +5352,7 @@
                 "bytesInOutput": 1939
               }
             },
-            "bytes": 113172
+            "bytes": 111935
           }
         }
       }
