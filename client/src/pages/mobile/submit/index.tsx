@@ -15,6 +15,7 @@ import {
   Tag,
   Empty,
   DotLoading,
+  Popup,
 } from 'antd-mobile';
 import {
   getActivePeriod,
@@ -75,6 +76,8 @@ const SubmitPage: React.FC = () => {
 
   // 提交结果
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [showRecord, setShowRecord] = useState(false);
+  const [submitTime, setSubmitTime] = useState<string>('');
 
   // 初始化：同时加载周期、品类、全量物品
   useEffect(() => {
@@ -208,6 +211,7 @@ const SubmitPage: React.FC = () => {
       });
 
       if (res.code === 0) {
+        setSubmitTime(new Date().toLocaleString('zh-CN', { hour12: false }));
         setSubmitSuccess(true);
       } else {
         Toast.show({ content: res.message || '提交失败', icon: 'fail' });
@@ -229,6 +233,8 @@ const SubmitPage: React.FC = () => {
     setSelectedItems([]);
     setSearchKeyword('');
     setSubmitSuccess(false);
+    setShowRecord(false);
+    setSubmitTime('');
   };
 
   // Loading 状态
@@ -268,6 +274,15 @@ const SubmitPage: React.FC = () => {
           />
           <Button
             block
+            color="default"
+            size="large"
+            onClick={() => setShowRecord(true)}
+            className={styles.viewRecordBtn}
+          >
+            查看本次记录
+          </Button>
+          <Button
+            block
             color="primary"
             size="large"
             onClick={handleReset}
@@ -276,6 +291,75 @@ const SubmitPage: React.FC = () => {
             继续提交
           </Button>
         </div>
+
+        {/* 本次提交记录弹窗 */}
+        <Popup
+          visible={showRecord}
+          onMaskClick={() => setShowRecord(false)}
+          position="bottom"
+          bodyStyle={{
+            borderRadius: '16px 16px 0 0',
+            maxHeight: '80vh',
+            overflowY: 'auto',
+          }}
+        >
+          {/* 顶部标题栏 */}
+          <div className={styles.popupHeader}>
+            <span className={styles.popupTitle}>本次提交记录</span>
+            <span className={styles.popupClose} onClick={() => setShowRecord(false)}>×</span>
+          </div>
+
+          {/* 提交信息 */}
+          <div className={styles.recordMeta}>
+            <div className={styles.recordMetaRow}>
+              <span>提交人</span>
+              <span>{employeeName} · {department}</span>
+            </div>
+            <div className={styles.recordMetaRow}>
+              <span>采购周期</span>
+              <span>{activePeriod.title}</span>
+            </div>
+            <div className={styles.recordMetaRow}>
+              <span>提交时间</span>
+              <span>{submitTime}</span>
+            </div>
+          </div>
+
+          <div className={styles.divider} />
+
+          {/* 物品列表 */}
+          {selectedItems.map((item) => (
+            <div key={item.productId} className={styles.recordItem}>
+              <div className={styles.recordItemHeader}>
+                <span className={styles.recordItemName}>{item.productName}</span>
+                <Tag color="primary" fill="outline">{item.categoryName}</Tag>
+              </div>
+              <div className={styles.recordItemDetail}>
+                数量：<strong>{item.quantity}</strong> {item.unit}
+              </div>
+              <div className={styles.recordItemDetail}>
+                单价：¥{item.price?.toFixed(2)} / {item.unit}
+              </div>
+              <div className={styles.recordItemDetail}>
+                用途：{item.purpose}
+              </div>
+            </div>
+          ))}
+
+          <div className={styles.divider} />
+
+          {/* 底部合计 */}
+          <div className={styles.recordSummary}>
+            <div className={styles.recordSummaryRow}>
+              <span>物品种数</span>
+              <span>{selectedItems.length} 种</span>
+            </div>
+            <div className={styles.recordSummaryRow}>
+              <span>合计数量</span>
+              <span>{selectedItems.reduce((sum, i) => sum + i.quantity, 0)} 件</span>
+            </div>
+          </div>
+        </Popup>
       </div>
     );
   }

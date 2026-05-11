@@ -407,3 +407,134 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
 }
+
+/* ============================
+   查看本次记录 按钮
+   ============================ */
+.viewRecordBtn {
+  margin-top: 12px;
+  border-radius: 8px;
+  height: 48px;
+  font-size: 15px;
+  border: 1.5px solid #d0d0d0;
+  color: #555;
+  background: #fafafa;
+}
+
+/* ============================
+   本次提交记录 Popup 弹窗
+   ============================ */
+.popupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.popupTitle {
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+}
+
+.popupClose {
+  font-size: 24px;
+  color: #bbb;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.recordMeta {
+  margin: 14px 16px 0;
+  padding: 12px 14px;
+  background: #f7f8fa;
+  border-radius: 10px;
+}
+
+.recordMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 5px 0;
+  color: #555;
+}
+
+.recordMetaRow span:last-child {
+  font-weight: 500;
+  color: #333;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-all;
+}
+
+.divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 14px 16px;
+}
+
+.recordItem {
+  margin: 0 16px 10px;
+  padding: 12px 14px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.recordItemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.recordItemName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  flex: 1;
+  min-width: 0;
+}
+
+.recordItemDetail {
+  font-size: 13px;
+  color: #666;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.recordItemDetail strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.recordSummary {
+  margin: 0 16px 28px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  color: white;
+}
+
+.recordSummaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.recordSummaryRow span:last-child {
+  font-weight: 700;
+  font-size: 16px;
+}
+

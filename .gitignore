@@ -4,3 +4,4 @@ node_modules
 .umi-production
 .umi
 data/database.sqlite*
+/client/src/.umi
